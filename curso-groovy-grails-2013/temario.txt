@@ -1,0 +1,48 @@
+UNIDAD 1. LENGUAJE GROOVY
+
+Introducción y Primer programa
+Aspectos básicos del lenguaje
+Tipos de datos simples. Cadenas
+Creación y manejo de colecciones
+Estructuras de control, Funciones  y Clausuras
+POO con Groovy. Clases e interfaces
+Librerías de Groovy:
+  MarkupBuilder y XmlSlurper. Tratamiento de XML
+  GroovySQL Bases de datos
+  Groovy Builders
+Expandos, Metaprogramacíon y DSL´s
+
+UNIDAD 2. FRAMEWORK GRAILS
+
+Arquitectura y constituyentes
+Andamiaje (Scaffolding)
+Ejemplo inicial
+Despliegue de aplicaciones
+
+UNIDAD 3. LA CAPA DE DOMINIO
+
+Clases de dominio
+Validaciones
+GORM. Operaciones CRUD y consultas 
+
+UNIDAD 4. LA CAPA WEB
+
+Controladores, modelos y vistas
+Ámbitos de atributos y Comandos
+Páginas GSP y Plantillas
+Validaciones y mensajes
+Interceptores y filtros.
+Librerías de etiquetas
+Conversaciones
+Carga de ficheros y Ajax
+Testing unitario, de integración y funcional
+
+UNIDAD 5. LA CAPA DE NEGOCIO
+
+Servicios y Transacciones
+
+UNIDAD 6. ASPECTOS AVANZADOS
+
+Uso y Creación de plugins
+Uso de clases legadas
+Configurando Spring e Hibernate

@@ -1,0 +1,6 @@
+--Output from testSave--
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: select count(*) as y0_ from Persons this_

@@ -1,0 +1,87 @@
+% Grails
+% Adolfo Sanz De Diego
+% Abril 2013
+
+# Ejemplos
+
+## Scafolding (estático+dinámico)
+
+## Mobile UI (Layout+Templates)
+
+## Unit and Integration Testing (TDD)
+
+## Security (Spring Plugin)
+
+## Plugin creation (TagLib)
+
+# Personalización
+
+## Layoout
+
+~~~{.java}
+~~~
+
+## Templates
+
+~~~{.java}
+~~~
+
+## CSS & JS Resources
+
+~~~{.java}
+~~~
+
+## GSP Tags
+
+~~~{.java}
+~~~
+
+## Creación de Tags
+
+# Misc
+
+## URL mapping
+
+~~~{.java}
+~~~
+
+## REST
+
+~~~{.java}
+~~~
+
+## Web Flow
+
+~~~{.java}
+~~~
+
+## Filters
+
+~~~{.java}
+~~~
+
+## Ajax
+
+~~~{.java}
+~~~
+
+## i18n
+
+~~~{.java}
+~~~
+
+## Plugins
+
+~~~{.java}
+~~~
+
+## Security
+
+~~~{.java}
+~~~
+
+##
+
+~~~{.java}
+~~~
+

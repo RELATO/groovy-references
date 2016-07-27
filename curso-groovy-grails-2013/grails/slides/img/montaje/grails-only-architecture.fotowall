@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<fotowall version="0.9" format="2">
+  <canvas>
+    <meta>
+      <filepath>/home/adolfo/Curro/cursos/curso-groovy-grails-2013/grails/img/grails-architecture-nih-only-architecture.fotowall</filepath>
+    </meta>
+    <mode>
+      <id>0</id>
+    </mode>
+    <background>
+      <mode>0</mode>
+      <back-properties ratio="2"/>
+      <title></title>
+      <background-color>
+        <top>
+          <red>192</red>
+          <green>192</green>
+          <blue>192</blue>
+        </top>
+        <bottom>
+          <red>80</red>
+          <green>80</green>
+          <blue>80</blue>
+        </bottom>
+      </background-color>
+      <title-color>
+        <red>255</red>
+        <green>0</green>
+        <blue>0</blue>
+      </title-color>
+      <foreground-color>
+        <red>128</red>
+        <green>128</green>
+        <blue>128</blue>
+      </foreground-color>
+    </background>
+    <content>
+      <picture>
+        <rect>
+          <x>-468</x>
+          <y>-314</y>
+          <w>937</w>
+          <h>628</h>
+        </rect>
+        <pos>
+          <x>657</x>
+          <y>321</y>
+        </pos>
+        <zvalue>1</zvalue>
+        <visible>1</visible>
+        <frame-class>0</frame-class>
+        <frame-text-enabled>1</frame-text-enabled>
+        <frame-text>grails-arc...</frame-text>
+        <transformation yRot="0" xRot="0" zRot="0,1235949458111422"/>
+        <mirror state="0"/>
+        <relativeFilePath>grails-architecture.png</relativeFilePath>
+        <fileUrl>/home/adolfo/Curro/cursos/curso-groovy-grails-2013/grails/img/grails-architecture.png</fileUrl>
+        <effects/>
+      </picture>
+    </content>
+    <preview><![CDATA[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]]></preview>
+  </canvas>
+</fotowall>

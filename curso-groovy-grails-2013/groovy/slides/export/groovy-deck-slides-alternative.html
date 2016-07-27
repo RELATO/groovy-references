@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" > <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" > <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" > <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="generator" content="pandoc" />
+  <meta name="description" content="Groovy" />
+  <meta name="author" content="Adolfo Sanz De Diego" />
+  <title>Groovy</title>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+
+  <!-- deck core css -->
+  <link rel="stylesheet" href="../lib/deck.js-master/core/deck.core.css">
+
+  <!-- deck extensions css -->
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/menu/deck.menu.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/status/deck.status.css">
+
+  <!-- deck slide theme css -->
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/swiss.css">
+  <!--
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/neon.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/swiss.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/web-2.0.css">
+  -->
+
+  <!-- deck slide transition css -->
+  <link rel="stylesheet" href="../lib/deck.js-transition-cube-master/cube.css">
+  <!--
+  <link rel="stylesheet" href="../lib/deck.js-transition-cube-master/cube.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/transition/fade.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/transition/horizontal-slide.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/transition/vertical-slide.css">
+  -->
+
+  <!-- custom css just for this page -->
+  <style>
+    figcaption {
+      display: none;
+      visibility:hidden;
+    }
+
+    #titlepage, #documentauthor, #documentdate {
+      text-align: center;
+    }
+
+    #titlepage {
+      font-size: 5.25em;
+      padding-top: 15%;
+    }
+
+    #documentauthor {
+      font-size: 2.25em;
+    }
+
+    #documentdate {
+      font-size: 1.25em;
+    }
+  </style>
+
+  <!-- modernizr deck js  -->
+  <script src="../lib/deck.js-master/modernizr.custom.js"></script>
+
+</head>
+<body class="deck-container">
+<section class="slide">
+  <h2 id="titlepage">Groovy</h2>
+  <h3 id="documentauthor">Adolfo Sanz De Diego</h3>
+  <h4 id="documentdate">Abril 2013</h4>
+</section>
+
+<section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="autor" class="slide level2">
+<h2><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>Twitter: <span class="citation" data-cites="asanzdiego">[@asanzdiego]</span>(http://twitter.com/asanzdiego)</li>
+<li>Linkedin: <a href="http://www.linkedin.com/in/asanzdiego">http://www.linkedin.com/in/asanzdiego</a></li>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es">http://asanzdiego.blogspot.com.es</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Este obra está bajo una licencia:</strong>
+<ul>
+<li><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></li>
+</ul></li>
+<li><strong>El código fuente de los programas están bajo una licencia:</strong>
+<ul>
+<li><a href="http://www.viti.es/gnu/licenses/gpl.html">GPL 3.0</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="introducción" class="titleslide slide level1"><h1><span class="header-section-number">2</span> Introducción</h1></section><section id="perspectiva-general-i" class="slide level2">
+<h2><span class="header-section-number">2.1</span> Perspectiva general (I)</h2>
+<ul>
+<li>Groovy es un <strong>lenguaje dinámico, orientado a objetos</strong>, muy íntimamente ligado a Java.</li>
+<li>Groovy <strong>simplifica la sintaxis de Java</strong> convirtiendo multitud de tareas en un placer.</li>
+<li>Groovy <strong>comparte con Java</strong> el mismo modelo de objetos, de hilos y de seguridad.</li>
+<li>Groovy puede usarse también de manera dinámica como un lenguaje de <strong>scripting</strong>.</li>
+</ul>
+</section><section id="perspectiva-general-ii" class="slide level2">
+<h2><span class="header-section-number">2.2</span> Perspectiva general (II)</h2>
+<ul>
+<li>El 99% del <strong>código Java puede ser compilado con groovy</strong>.</li>
+<li>El 100% del <strong>código Groovy es convertido en bytecode Java</strong>, y ejecutado en la JVM.</li>
+<li>Los programadores Java nos podemos <strong>introducirnos en Groovy poco a poco</strong>.</li>
+<li>Su <strong>curva de aprendizaje es casi plana</strong> para programadores Java.</li>
+</ul>
+</section><section id="helloworld.java" class="slide level2">
+<h2><span class="header-section-number">2.3</span> HelloWorld.java</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+
+  <span class="kw">private</span> String nombre;
+  
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>();
+    hw.<span class="fu">setNombre</span>(<span class="st">&quot;Groovy&quot;</span>);
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>());
+  }
+
+  <span class="kw">public</span> String <span class="fu">getNombre</span>() {
+    <span class="kw">return</span> nombre;
+  }
+
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setNombre</span>(String nombre) {
+    <span class="kw">this</span>.<span class="fu">nombre</span> = nombre;
+  }
+
+  <span class="kw">public</span> String <span class="fu">saluda</span>() {
+    <span class="kw">return</span> <span class="st">&quot;Hola &quot;</span> + nombre;
+  }
+}</code></pre>
+</section><section id="helloworld.groovy" class="slide level2">
+<h2><span class="header-section-number">2.4</span> HelloWorld.groovy</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+
+  <span class="kw">private</span> String nombre;
+  
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>();
+    hw.<span class="fu">setNombre</span>(<span class="st">&quot;Groovy&quot;</span>);
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>());
+  }
+
+  <span class="kw">public</span> String <span class="fu">getNombre</span>() {
+    <span class="kw">return</span> nombre;
+  }
+
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setNombre</span>(String nombre) {
+    <span class="kw">this</span>.<span class="fu">nombre</span> = nombre;
+  }
+
+  <span class="kw">public</span> String <span class="fu">saluda</span>() {
+    <span class="kw">return</span> <span class="st">&quot;Hola &quot;</span> + nombre;
+  }
+}</code></pre>
+</section><section id="helloworld.groovy-i" class="slide level2">
+<h2><span class="header-section-number">2.5</span> HelloWorld.groovy (I)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+
+  <span class="kw">private</span> String nombre;
+  
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>();
+    hw.<span class="fu">nombre</span> = <span class="st">&quot;Groovy&quot;</span>;
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>());
+  }
+
+  <span class="kw">public</span> String <span class="fu">saluda</span>() {
+    <span class="kw">return</span> <span class="st">&quot;Hola &quot;</span> + nombre;
+  }
+}</code></pre>
+<ul>
+<li><strong>Getters y setters autogenerados</strong>.</li>
+</ul>
+</section><section id="helloworld.groovy-ii" class="slide level2">
+<h2><span class="header-section-number">2.6</span> HelloWorld.groovy (II)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> HelloWorld {
+
+  String nombre
+  
+  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>()
+    hw.<span class="fu">nombre</span> = <span class="st">&quot;Groovy&quot;</span>
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>())
+  }
+
+  String <span class="fu">saluda</span>() {
+    <span class="st">&quot;Hola &quot;</span> + nombre
+  }
+}</code></pre>
+<ul>
+<li><strong>Clases y métodos public por defecto</strong>.</li>
+<li><strong>Atributos private por defecto</strong>.</li>
+<li><strong>punto y coma opcionales</strong>.</li>
+<li><strong>return opcional</strong> (por defecto la última línea)</li>
+</ul>
+</section><section id="helloworld.groovy-iii" class="slide level2">
+<h2><span class="header-section-number">2.7</span> HelloWorld.groovy (III)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> HelloWorld {
+
+  def nombre
+  
+  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>()
+    hw.<span class="fu">nombre</span> = <span class="st">&quot;Groovy&quot;</span>
+    println hw.<span class="fu">saluda</span>()
+  }
+
+  def <span class="fu">saluda</span>() {
+    <span class="st">&quot;Hola &quot;</span> + nombre
+  }
+}</code></pre>
+<ul>
+<li><strong>tipado dinámico</strong>.</li>
+<li><strong>println</strong> alias de System.out.println.</li>
+<li><strong>paréntesis opcionales</strong> cuando hay parámetros.</li>
+</ul>
+</section><section id="helloworld.groovy-iv" class="slide level2">
+<h2><span class="header-section-number">2.8</span> HelloWorld.groovy (IV)</h2>
+<pre class="sourceCode java"><code class="sourceCode java">HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>()
+hw.<span class="fu">setNombre</span> <span class="st">&quot;Groovy&quot;</span>
+println hw.<span class="fu">saluda</span>()
+
+<span class="kw">class</span> HelloWorld {
+
+  def nombre
+
+  def <span class="fu">saluda</span>() {
+    <span class="st">&quot;Hola ${nombre}&quot;</span>
+  }
+}</code></pre>
+<ul>
+<li><strong>declaración de classes y método main opcional en scripts</strong>.</li>
+</ul>
+</section><section id="otros-aspectos-i" class="slide level2">
+<h2><span class="header-section-number">2.9</span> Otros aspectos (I)</h2>
+<ul>
+<li><strong>imports por defecto</strong> (java.io.<em>, java.lang.</em>, java.math.BigDecimal, java.math.BigInteger, java.net.<em>, java.util.</em>, groovy.lang.<em>, groovy.util.</em>)</li>
+<li>Todas las <strong>excepciones son de tipo RunTimeException</strong> (ni declararlas, ni capturarlas)</li>
+<li><strong>Sobrecarga de operadores</strong> (plus, minus, multiply, div, mod, or, and, next, previous, ...) <a href="http://groovy.codehaus.org/Operator+Overloading">ver documentación</a></li>
+</ul>
+</section><section id="otros-aspectos-ii" class="slide level2">
+<h2><span class="header-section-number">2.10</span> Otros aspectos (II)</h2>
+<ul>
+<li>Todos <strong>los tipos primitivos son tratados como objetos</strong> (autoboxing)</li>
+<li>Todos <strong>los decimales son tratados como BigDecimal</strong> para evitar la inexactitud de las clases Float y Double.</li>
+<li>Siempre que se evalue un <strong>valor cero, null, un String vacío, una coleccion vacía, un array de longitud cero o un StringBuilder/StringBuffer vacío, se obtendrá false</strong>. En cualquier otra situación, se obtendrá true.</li>
+</ul>
+</section><section id="otros-aspectos-iii" class="slide level2">
+<h2><span class="header-section-number">2.11</span> Otros aspectos (III)</h2>
+<ul>
+<li>El <strong>operador == está sobrecargado</strong> en el método equals()</li>
+<li>El == de Java se puede usar con el método is()</li>
+<li>Uso de la <strong>anotación <span class="citation" data-cites="PackageScope">@PackageScope</span> para la visibilidad package-scope</strong>.</li>
+</ul>
+</section><section id="otros-aspectos-iv" class="slide level2">
+<h2><span class="header-section-number">2.12</span> Otros aspectos (IV)</h2>
+<ul>
+<li>Uso de <strong>maps en los constructores</strong>.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Persona {
+    def nombre
+    def edad
+}
+
+def persona = <span class="kw">new</span> <span class="fu">Person</span>(nombre: <span class="st">&quot;Alba&quot;</span>, edad: <span class="dv">5</span>)</code></pre>
+</section><section id="otros-aspectos-v" class="slide level2">
+<h2><span class="header-section-number">2.13</span> Otros aspectos (V)</h2>
+<ul>
+<li><strong>Operador referencia segura (?.)</strong> que se pone antes del punto y que si el objeto es null devuelve null y en caso contrario devuelve lo que sigue al punto.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">if</span> (order != <span class="kw">null</span>) {
+  <span class="kw">if</span> (order.<span class="fu">getCustomer</span>() != <span class="kw">null</span>) {
+    <span class="kw">if</span> (order.<span class="fu">getCustomer</span>().<span class="fu">getAddress</span>() != <span class="kw">null</span>) {
+      System.<span class="fu">out</span>.<span class="fu">println</span>(order.<span class="fu">getCustomer</span>().<span class="fu">getAddress</span>());
+    }
+  }
+}</code></pre>
+<ul>
+<li>El código anterior se simplifica:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">println order?.<span class="fu">customer</span>?.<span class="fu">address</span></code></pre>
+</section><section id="otros-aspectos-vi" class="slide level2">
+<h2><span class="header-section-number">2.14</span> Otros aspectos (VI)</h2>
+<ul>
+<li><strong>Operador Elvis (?:)</strong> para valores por defecto.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def result = name != <span class="kw">null</span> ? name : <span class="st">&quot;Unknown&quot;</span></code></pre>
+<ul>
+<li>El código anterior se simplifica:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def result = name ?: <span class="st">&quot;Unknown&quot;</span></code></pre>
+</section><section id="otros-aspectos-vii" class="slide level2">
+<h2><span class="header-section-number">2.15</span> Otros aspectos (VII)</h2>
+<ul>
+<li>Uso intensivo de <strong>asserts</strong>.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def <span class="fu">check</span>(String name) {
+
+    <span class="co">// name non-null, non-empty and size &gt; 3</span>
+    assert name?.<span class="fu">size</span>() &gt; <span class="dv">3</span>
+}</code></pre>
+</section>
+<section id="instalación-y-configuración" class="titleslide slide level1"><h1><span class="header-section-number">3</span> Instalación y configuración</h1></section><section id="jdk" class="slide level2">
+<h2><span class="header-section-number">3.1</span> JDK</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">JAVA_HOME=</span><span class="st">&quot;~/Java/jdk&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$JAVA_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+</section><section id="groovy-sdk" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Groovy-SDK</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">GROOVY_HOME=</span><span class="st">&quot;~/Java/groovy&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$GROOVY_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+</section><section id="probando" class="slide level2">
+<h2><span class="header-section-number">3.3</span> Probando</h2>
+<pre><code>$ groovy --version
+Groovy Version: 2.1.2
+JVM: 1.7.0_21 Vendor: Oracle Corporation OS: Linux</code></pre>
+</section>
+<section id="ejecución" class="titleslide slide level1"><h1><span class="header-section-number">4</span> Ejecución</h1></section><section id="scripts" class="slide level2">
+<h2><span class="header-section-number">4.1</span> Scripts</h2>
+<ul>
+<li><strong>Ejecución directa</strong> (compila a .class y ejecuta directamente)</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovy</span> HelloWorld.groovy</code></pre>
+</section><section id="groovy-shell" class="slide level2">
+<h2><span class="header-section-number">4.2</span> Groovy Shell</h2>
+<ul>
+<li>Se abre una <strong>shell de groovy</strong>, con historial de comandos.</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovysh</span></code></pre>
+</section><section id="groovy-console" class="slide level2">
+<h2><span class="header-section-number">4.3</span> Groovy Console</h2>
+<ul>
+<li>Funciona en <strong>modo gráfico</strong> y permite opciones mas potentes que la shell, como guardar y cargar archivos, opciones de edición de texto, etc.</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovyConsole</span></code></pre>
+</section><section id="compilación" class="slide level2">
+<h2><span class="header-section-number">4.4</span> Compilación</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovyc</span> helloworld.groovy</code></pre>
+<ul>
+<li>Luego se puede ejecutar directamente el .class</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovy</span> helloworld</code></pre>
+</section>
+<section id="cadenas-de-texto" class="titleslide slide level1"><h1><span class="header-section-number">5</span> Cadenas de texto</h1></section><section id="strings" class="slide level2">
+<h2><span class="header-section-number">5.1</span> Strings</h2>
+<ul>
+<li>Similares a las de Java pero <strong>podemos usar tanto comillas dobles como simples</strong>.</li>
+<li>Las comillas simples no interpreta las variables, las dobles sí</li>
+</ul>
+</section><section id="gstrings" class="slide level2">
+<h2><span class="header-section-number">5.2</span> GStrings</h2>
+<ul>
+<li>Contienen <strong>expresiones embebidas</strong>.</li>
+<li>Las expresiones se introducen con ${} y son <strong>evaluadas en tiempo de ejecución</strong>.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def saldo = <span class="fl">1821.14</span> 
+def mensaje = <span class="st">&quot;El saldo a fecha ${new Date()} es de ${saldo} euros&quot;</span> 
+println mensaje </code></pre>
+</section><section id="heredocs" class="slide level2">
+<h2><span class="header-section-number">5.3</span> Heredocs</h2>
+<ul>
+<li>Se forma con <strong>tres comillas simples o dobles</strong>.</li>
+<li>Nos permiten cadenas de <strong>texto multilinea</strong>.</li>
+<li>Nos permiten también <strong>mezclar comillas simples y dobles en su interior</strong>.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def multilinea = <span class="st">&quot;&quot;&quot; </span>
+Primera linea 
+Segunda linea 
+Tercera linea con <span class="st">&quot;comillas dobles&quot;</span> y &#39;comillas simples&#39; 
+<span class="st">&quot;&quot;&quot; </span>
+println multilinea </code></pre>
+</section>
+<section id="closures" class="titleslide slide level1"><h1><span class="header-section-number">6</span> Closures</h1></section><section id="definición" class="slide level2">
+<h2><span class="header-section-number">6.1</span> Definición</h2>
+<ul>
+<li><strong>Bloque de código autónomo</strong> que puede usarse en distintos sitios.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def saludar = { nombre, apellido -&gt; 
+    println <span class="st">&quot;¡Hola ${nombre} ${apellido}!&quot;</span> 
+} 
+saludar <span class="st">&quot;Alba&quot;</span>, <span class="st">&quot;Sanz&quot;</span> </code></pre>
+</section><section id="curry" class="slide level2">
+<h2><span class="header-section-number">6.2</span> Curry</h2>
+<ul>
+<li>Nos permite <strong>pre-cargar valores</strong> que serán siempre los mismos para una determinada función.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def multiplicar = { valor1, valor2 -&gt; 
+    valor1 * valor2 
+} 
+
+def doble = multiplicar.<span class="fu">curry</span>(<span class="dv">2</span>) 
+def triple = multiplicar.<span class="fu">curry</span>(<span class="dv">3</span>) 
+
+println <span class="fu">doble</span>(<span class="dv">7</span>) 
+println <span class="fu">triple</span>(<span class="dv">7</span>) </code></pre>
+</section><section id="parámetros" class="slide level2">
+<h2><span class="header-section-number">6.3</span> Parámetros</h2>
+<ul>
+<li>Las closures pueden ser utilizadas como <strong>argumentos de una función</strong>.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def <span class="fu">repetirClosure</span>(<span class="dt">int</span> numRepeticiones, Closure closure) { 
+  <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; numRepeticiones; i++) { 
+    closure.<span class="fu">call</span>(i) 
+  } 
+} 
+
+def closure = { println it } 
+<span class="fu">repetirClosure</span>(<span class="dv">5</span>, closure) </code></pre>
+</section>
+<section id="rangos" class="titleslide slide level1"><h1><span class="header-section-number">7</span> Rangos</h1></section><section id="numéricos" class="slide level2">
+<h2><span class="header-section-number">7.1</span> Numéricos</h2>
+<ul>
+<li>Imprime 5 números del 1 al 5 inclusive.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">(<span class="dv">1</span>..<span class="dv">5</span>).<span class="fu">each</span> { 
+    println it 
+}</code></pre>
+<ul>
+<li>Imprime 4 números del 1 al 4.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">(<span class="dv">1</span>..&lt;<span class="dv">5</span>).<span class="fu">each</span> { 
+    println it 
+}</code></pre>
+</section><section id="otros" class="slide level2">
+<h2><span class="header-section-number">7.2</span> Otros</h2>
+<ul>
+<li>Fechas</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def hoy = <span class="kw">new</span> Date() 
+def dentroDeSieteDias = hoy + <span class="dv">7</span> 
+(hoy..<span class="fu">dentroDeSieteDias</span>).<span class="fu">each</span> { dia -&gt; 
+    println dia 
+} </code></pre>
+<ul>
+<li>Letras</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">(&#39;a&#39;..&#39;z&#39;).<span class="fu">each</span> { letra -&gt; 
+    println letra 
+} </code></pre>
+</section><section id="propiedades" class="slide level2">
+<h2><span class="header-section-number">7.3</span> Propiedades</h2>
+<ul>
+<li>Algunos atributos y métodos:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def rango = <span class="dv">5</span>..<span class="dv">10</span> 
+println rango.<span class="fu">from</span> 
+println rango.<span class="fu">to</span> 
+println rango.<span class="fu">contains</span>(<span class="dv">4</span>) 
+println rango.<span class="fu">size</span>() 
+println rango.<span class="fu">get</span>(<span class="dv">3</span>) 
+println rango[<span class="dv">3</span>] </code></pre>
+</section><section id="switchs" class="slide level2">
+<h2><span class="header-section-number">7.4</span> Switchs</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def sueldo = <span class="dv">1700</span>; 
+<span class="kw">switch</span>(sueldo) { 
+    <span class="kw">case</span> <span class="dv">600</span>..&lt;<span class="dv">1200</span>: 
+        println &#39;nivel <span class="dv">1</span>&#39; 
+        <span class="kw">break</span> 
+    <span class="kw">case</span> <span class="dv">1200</span>..&lt;<span class="dv">1800</span>: 
+        println &#39;nivel <span class="dv">2</span>&#39; 
+        <span class="kw">break</span> 
+} </code></pre>
+</section>
+<section id="listas" class="titleslide slide level1"><h1><span class="header-section-number">8</span> Listas</h1></section><section id="añadir" class="slide level2">
+<h2><span class="header-section-number">8.1</span> Añadir</h2>
+<ul>
+<li>Se añaden por <strong>índice</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def paises = [<span class="st">&quot;España&quot;</span>, <span class="st">&quot;Mexico&quot;</span>]
+paises &lt;&lt; <span class="st">&quot;Argentina&quot;</span> 
+paises.<span class="fu">add</span>(<span class="st">&quot;Ecuador&quot;</span>) </code></pre>
+</section><section id="recuperarmodificar" class="slide level2">
+<h2><span class="header-section-number">8.2</span> Recuperar/Modificar</h2>
+<ul>
+<li>Se recuperan también por <strong>índice</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">paises[<span class="dv">3</span>] = <span class="st">&quot;Colombia&quot;</span> 
+paises[<span class="dv">6</span>] = <span class="st">&quot;Ecuador&quot;</span> 
+
+println paises[<span class="dv">0</span>] 
+println paises.<span class="fu">getAt</span>(<span class="dv">1</span>)
+println paises </code></pre>
+</section><section id="eliminar" class="slide level2">
+<h2><span class="header-section-number">8.3</span> Eliminar</h2>
+<ul>
+<li>Lanza un <strong>NullPointerException</strong> si no existe nada en el índice 6.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def eliminado1 = paises.<span class="fu">remove</span>(<span class="dv">6</span>) </code></pre>
+<ul>
+<li>Devuelve un <strong>null</strong> si no hay ningún objeto coincidente.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def eliminado2 = paises.<span class="fu">remove</span>(<span class="st">&quot;Ecuador&quot;</span>) </code></pre>
+<ul>
+<li>Elimina el objeto con el <strong>índice más alto</strong>.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def eliminado = paises.<span class="fu">pop</span>()</code></pre>
+</section><section id="iterar" class="slide level2">
+<h2><span class="header-section-number">8.4</span> Iterar</h2>
+<ul>
+<li><strong>Iterar</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">paises.<span class="fu">each</span> { 
+  println it.<span class="fu">toUpperCase</span>() 
+}</code></pre>
+<ul>
+<li>Iterar <strong>con índice</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">paises.<span class="fu">eachWithIndex</span> { pais, indice -&gt; 
+  println <span class="st">&quot;${pais} se encuentra en la posición ${indice}&quot;</span> 
+} </code></pre>
+<ul>
+<li>Iterar sobre cada elemento y <strong>devolver otra lista</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def paisesMayusculas = paises.<span class="fu">collect</span> { pais -&gt; 
+    pais.<span class="fu">toUpperCase</span>() 
+} </code></pre>
+</section><section id="ordenar" class="slide level2">
+<h2><span class="header-section-number">8.5</span> Ordenar</h2>
+<ul>
+<li><strong>Ordenar</strong> la lista original:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">paises.<span class="fu">sort</span>()</code></pre>
+<ul>
+<li>Devuelve una lista <strong>invertida</strong>, sin modificar la original:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def paisesInvertidos = paises.<span class="fu">reverse</span>() </code></pre>
+</section><section id="operadores-y--" class="slide level2">
+<h2><span class="header-section-number">8.6</span> Operadores + y -</h2>
+<ul>
+<li>El operador <strong>+=</strong> y el operador <strong>-=</strong></li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def pares = [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>] 
+def impares = [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>] 
+
+pares += impares
+pares.<span class="fu">sort</span>() 
+println pares 
+
+pares -= impares
+println pares</code></pre>
+</section><section id="max-y-min" class="slide level2">
+<h2><span class="header-section-number">8.7</span> Max y min</h2>
+<ul>
+<li>Valores <strong>máximo y mínimo</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">println letras.<span class="fu">max</span>() 
+println letras.<span class="fu">min</span>()</code></pre>
+</section><section id="aplanar" class="slide level2">
+<h2><span class="header-section-number">8.8</span> Aplanar</h2>
+<ul>
+<li>La función <strong>flatten</strong> aplana una lista anidada:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, [&#39;c&#39;, &#39;d&#39;], &#39;f&#39;].<span class="fu">flatten</span>() == [&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;f&#39;])</code></pre>
+</section><section id="join-y-disjoint" class="slide level2">
+<h2><span class="header-section-number">8.9</span> Join y disjoint</h2>
+<ul>
+<li>La función <strong>join</strong> convierte la lista en el String a-b-c</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def letras = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;] 
+println letras.<span class="fu">join</span>(<span class="st">&quot;-&quot;</span>) </code></pre>
+<ul>
+<li>La función <strong>disjoint</strong> nos devuelve <strong>true</strong> si las 2 listas son <strong>disjuntas</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;].<span class="fu">disjoint</span>([&#39;b&#39;, &#39;e&#39;, &#39;f&#39;]) == <span class="kw">true</span> </code></pre>
+</section><section id="intersección" class="slide level2">
+<h2><span class="header-section-number">8.10</span> Intersección</h2>
+<ul>
+<li>La función <strong>intersect</strong> nos devuelve los <strong>elementos comunes</strong> entre 2 listas:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;].<span class="fu">disjoint</span>([&#39;b&#39;, &#39;c&#39;, &#39;d&#39;]) == [&#39;c&#39;, &#39;d&#39;]</code></pre>
+</section><section id="unicidad" class="slide level2">
+<h2><span class="header-section-number">8.11</span> Unicidad</h2>
+<ul>
+<li>La función <strong>unique</strong> quita los duplicados:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, &#39;c&#39;, &#39;a&#39;, &#39;d&#39;].<span class="fu">unique</span>() == [&#39;a&#39;, &#39;c&#39;, &#39;d&#39;]</code></pre>
+</section><section id="búsqueda" class="slide level2">
+<h2><span class="header-section-number">8.12</span> Búsqueda</h2>
+<ul>
+<li>La función <strong>find</strong>, que admite una closure, devuelve el primer elemento encontrado:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">find</span> { it % <span class="dv">2</span> == <span class="dv">0</span> } == <span class="dv">2</span></code></pre>
+<ul>
+<li>La función <strong>findAll</strong>, que admite una closure, devuelve todos los elementos encontrados:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">findAll</span> { it % <span class="dv">2</span> == <span class="dv">0</span> } == [<span class="dv">2</span>, <span class="dv">4</span>]</code></pre>
+</section><section id="sumatorio" class="slide level2">
+<h2><span class="header-section-number">8.13</span> Sumatorio</h2>
+<ul>
+<li>La función <strong>sum</strong>, que admite una closure, devuelve la suma de los elementos:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">sum</span>() == <span class="dv">10</span>
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">sum</span> { it % <span class="dv">2</span> == <span class="dv">0</span> } == <span class="dv">6</span></code></pre>
+<ul>
+<li>El operador <strong>*</strong>, que ejecuta un método del objeto para todos los objetos de la lista:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Persona
+  def nombre
+  def <span class="fu">imprimir</span>() {
+    println nombre
+  }
+}
+
+def personas = [<span class="kw">new</span> <span class="fu">Persona</span>(nombre:<span class="st">&quot;Alba&quot;</span>), <span class="kw">new</span> <span class="fu">Persona</span>(nombre:<span class="st">&quot;Laura&quot;</span>)]
+personas*.<span class="fu">imprimir</span>()</code></pre>
+</section>
+<section id="mapas" class="titleslide slide level1"><h1><span class="header-section-number">9</span> Mapas</h1></section><section id="añadir-1" class="slide level2">
+<h2><span class="header-section-number">9.1</span> Añadir</h2>
+<ul>
+<li>Se añaden pares <strong>clave-valor</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def capitales = [&#39;Madrid&#39;:&#39;España&#39;, &#39;Mexico D.<span class="fu">F</span>.&#39;:&#39;Mexico&#39;]
+capitales.<span class="fu">put</span>(&#39;Buenos Aires&#39;, &#39;Argentina&#39;) </code></pre>
+</section><section id="recuperarmodificar-1" class="slide level2">
+<h2><span class="header-section-number">9.2</span> Recuperar/modificar</h2>
+<ul>
+<li>Se modificar/recuperar los pares <strong>clave-valor</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">capitales.<span class="fu">get</span>(&#39;Madrid&#39;) 
+capitales.<span class="fu">Madrid</span>
+capitales[&#39;Madrid&#39;]
+capitales.&#39;Buenos Aires&#39; = Argentina
+capitales[&#39;Buenos Aires&#39;] = &#39;Argentina&#39;</code></pre>
+</section><section id="eliminar-1" class="slide level2">
+<h2><span class="header-section-number">9.3</span> Eliminar</h2>
+<ul>
+<li><strong>Eliminar</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">capitales.<span class="fu">remove</span>(&#39;Buenos Aires&#39;) </code></pre>
+</section><section id="iterar-1" class="slide level2">
+<h2><span class="header-section-number">9.4</span> Iterar</h2>
+<ul>
+<li><strong>Iterar</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">capitales.<span class="fu">each</span> { capital, pais -&gt; 
+    println <span class="st">&quot;La capital de ${pais} es ${capital}&quot;</span> 
+} </code></pre>
+</section><section id="operadores-y---1" class="slide level2">
+<h2><span class="header-section-number">9.5</span> Operadores + y -</h2>
+<ul>
+<li>Operador <strong>+=</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def angloParlantes = [&#39;Washington&#39;:&#39;EEUU&#39;, &#39;Londres&#39;:&#39;Reino Unido&#39;] 
+capitales += angloParlantes</code></pre>
+<ul>
+<li>El operador <strong>-=</strong> no está soportado, en su caso:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">angloParlantes.<span class="fu">each</span> { 
+  capitales.<span class="fu">remove</span>(it.<span class="fu">key</span>) 
+} </code></pre>
+</section><section id="keys-y-values" class="slide level2">
+<h2><span class="header-section-number">9.6</span> Keys y Values</h2>
+<ul>
+<li>Las funciones <strong>heySet()</strong> y <strong>values()</strong> (similares Java):</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def claves = capitales.<span class="fu">keySet</span>() 
+def valores = capitales.<span class="fu">values</span>() </code></pre>
+<ul>
+<li>Las funciones <strong>containsKey()</strong> y <strong>containsValue()</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">println capitales.<span class="fu">containsKey</span>(&#39;Madrid&#39;) 
+println capitales.containsValue(&#39;España&#39;) </code></pre>
+</section>
+<section id="meta-programación" class="titleslide slide level1"><h1><span class="header-section-number">10</span> Meta Programación</h1></section><section id="qué-es-y-para-qué-sirve" class="slide level2">
+<h2><span class="header-section-number">10.1</span> ¿Qué es y para qué sirve?</h2>
+<ul>
+<li><p>Mediante metaprogramación podemos escribir <strong>código que genera o modifica otro código o incluso a si mismo en tiempo de ejecución</strong>.</p></li>
+<li><p>Esto nos permite, entre otras cosas, manejar situaciones que no estaban previstas cuando se escribió el código, sin necesidad de recompilar.</p></li>
+</ul>
+</section><section id="reflection" class="slide level2">
+<h2><span class="header-section-number">10.2</span> Reflection</h2>
+<ul>
+<li>Mediante <strong>reflection</strong> podemos acceder a los miembros de una clase:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">println String.<span class="fu">class</span> 
+String.<span class="fu">interfaces</span>.<span class="fu">each</span> { println it } 
+String.<span class="fu">constructors</span>.<span class="fu">each</span> { println it } 
+String.<span class="fu">methods</span>.<span class="fu">each</span> { println it } 
+
+def s = <span class="kw">new</span> String(<span class="st">&quot;cadena de texto&quot;</span>) 
+s.<span class="fu">properties</span>.<span class="fu">each</span> { propiedad -&gt; 
+    println propiedad 
+} </code></pre>
+</section><section id="expandos" class="slide level2">
+<h2><span class="header-section-number">10.3</span> Expandos</h2>
+<ul>
+<li>Un Expando es como un <strong>objeto en blanco</strong>, al cual podemos añadir métodos y propiedades.</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def posicion = <span class="kw">new</span> <span class="fu">Expando</span>() 
+posicion.<span class="fu">latitud</span> = <span class="fl">15.47</span> 
+posicion.<span class="fu">longitud</span> = -<span class="fl">3.11</span> 
+posicion.<span class="fu">mover</span> = { deltaLatitud, deltaLongitud -&gt; 
+  posicion.<span class="fu">latitud</span> += deltaLatitud
+  posicion.<span class="fu">longitud</span> += deltaLongitud
+}</code></pre>
+</section><section id="propiedades-1" class="slide level2">
+<h2><span class="header-section-number">10.4</span> Propiedades</h2>
+<ul>
+<li><strong>metaClass.hasProperty()</strong> nos permite comprobar si dispone de una propiedad concreta:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def boligrafo = <span class="kw">new</span> <span class="fu">Articulo</span>(
+  descripcion:<span class="st">&quot;Boligrafo negro&quot;</span>, precio:<span class="fl">0.45</span>) 
+
+<span class="kw">if</span>(boligrafo.<span class="fu">metaClass</span>.<span class="fu">hasProperty</span>(boligrafo, <span class="st">&quot;precio&quot;</span>)) { 
+    <span class="co">// hacer algo </span>
+} </code></pre>
+</section><section id="propiedades-dinámicas" class="slide level2">
+<h2><span class="header-section-number">10.5</span> Propiedades dinámicas</h2>
+<ul>
+<li>Para poder añadir propiedades a un objeto (que no sea un expando) de forma dinámica se hace con las funciones <strong>setProperty() y getProperty()</strong></li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+  def propiedades = [:] 
+   
+  <span class="dt">void</span> <span class="fu">setProperty</span>(String nombre, Object valor) { 
+    propiedades[nombre] = valor 
+  } 
+   
+  Object <span class="fu">getProperty</span>(String nombre) { 
+    propiedades[nombre] 
+  } 
+} 
+
+def articulo = <span class="kw">new</span> <span class="fu">Articulo</span>() 
+articulo.<span class="fu">codigoEAN</span> = <span class="dv">84123445593</span> 
+println articulo.<span class="fu">codigoEAN</span> </code></pre>
+</section><section id="punteros" class="slide level2">
+<h2><span class="header-section-number">10.6</span> Punteros</h2>
+<ul>
+<li>Punteros a <strong>propiedades</strong> con el <strong>operador @</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">println boligrafo.<span class="fu">@precio</span> </code></pre>
+<ul>
+<li>Punteros a <strong>métodos</strong> con el <strong>operador &amp;</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def lista = [] 
+def insertar = lista.&amp;add 
+insertar <span class="st">&quot;valor1&quot;</span> 
+insertar <span class="st">&quot;valor2&quot;</span> </code></pre>
+</section><section id="categorías" class="slide level2">
+<h2><span class="header-section-number">10.7</span> Categorías</h2>
+<ul>
+<li>Groovy nos permite <strong>usar métodos de una categoría</strong> dentro de una clase.</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+} 
+
+<span class="kw">class</span> ArticuloExtras {
+  <span class="co">// importante el static y la clase Articulo como parámetro</span>
+  <span class="dt">static</span> <span class="dt">double</span> <span class="fu">conImpuestos</span>(Articulo articulo) { 
+    articulo.<span class="fu">precio</span> * <span class="fl">1.18</span> 
+  } 
+} 
+
+Articulo articulo = <span class="kw">new</span> <span class="fu">Articulo</span>(descripcion:&#39;Grapadora&#39;, precio:<span class="fl">4.50</span>) 
+<span class="fu">use</span>(ArticuloExtras) { 
+    articulo.<span class="fu">conImpuestos</span>() 
+} </code></pre>
+</section><section id="métodos" class="slide level2">
+<h2><span class="header-section-number">10.8</span> Métodos</h2>
+<ul>
+<li><strong>metaClass.respondsTo()</strong> nos permite comprobar la existencia de un método:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">if</span>(boligrafo.<span class="fu">metaClass</span>.<span class="fu">respondsTo</span>(boligrafo, <span class="st">&quot;getDescripcion&quot;</span>)) { 
+    <span class="co">// hacer algo </span>
+} </code></pre>
+</section><section id="ejecutando-con-gstrings" class="slide level2">
+<h2><span class="header-section-number">10.9</span> Ejecutando con GStrings</h2>
+<ul>
+<li>Podemos <strong>ejecutar métodos mediante GStrings</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def nombreDelMetodo = <span class="st">&quot;getPrecio&quot;</span> 
+boligrafo.<span class="st">&quot;${nombreDelMetodo}&quot;</span>() </code></pre>
+<ul>
+<li>Esto nos permite ejecutar en tiempo de ejecución métodos no creados en tiempo de compilación.</li>
+</ul>
+</section><section id="interceptando-métodos-i" class="slide level2">
+<h2><span class="header-section-number">10.10</span> Interceptando métodos (I)</h2>
+<ul>
+<li>Para poder añadir métodos a un objeto (que no sea un expando) de forma dinámica se hace con la función <strong>invokeMethod()</strong></li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+   
+  Object <span class="fu">invokeMethod</span>(String nombre, Object args) { 
+    println <span class="st">&quot;Invocado método ${nombre}() con los argumentos ${args}&quot;</span> 
+  } 
+} 
+
+def articulo = <span class="kw">new</span> <span class="fu">Articulo</span>() 
+articulo.<span class="fu">operacionInexistente</span>(&#39;abc&#39;, <span class="dv">123</span>, <span class="kw">true</span>) </code></pre>
+</section><section id="interceptando-métodos-ii" class="slide level2">
+<h2><span class="header-section-number">10.11</span> Interceptando métodos (II)</h2>
+<ul>
+<li>El caso anterior sólo intercepta los métodos no definidos.</li>
+<li>Si lo que queremos es interceptar todos los métodos, la clase tiene que implementar la Interfaz <strong>GroovyInterceptable</strong></li>
+<li>Esto nos permite Programación Orientada a Aspectos.</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo <span class="kw">implements</span> GroovyInterceptable { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+   
+  Object <span class="fu">invokeMethod</span>(String nombre, Object args) { 
+    def metaMetodo = Articulo.<span class="fu">metaClass</span>.<span class="fu">getMetaMethod</span>(nombre, args) 
+    metaMetodo.<span class="fu">invoke</span>(<span class="kw">this</span>, args) 
+  } 
+} </code></pre>
+</section><section id="métodos-dinámicos" class="slide level2">
+<h2><span class="header-section-number">10.12</span> Métodos dinámicos</h2>
+<ul>
+<li>Groovy nos permite <strong>añadir métodos</strong> a una clase ya creada:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">Integer.<span class="fu">metaClass</span>.<span class="fu">numeroAleatorio</span> = { 
+    def random = <span class="kw">new</span> Random() 
+    random.<span class="fu">nextInt</span>(delegate.<span class="fu">intValue</span>()) 
+} 
+
+<span class="fl">50.</span><span class="fu">numeroAleatorio</span>()</code></pre>
+<ul>
+<li>Tened en cuenta que <strong>delegate</strong> hace referencia al objeto 'delegado', el objeto que estará disponible en tiempo de ejecución.</li>
+</ul>
+</section>
+<section id="ficheros" class="titleslide slide level1"><h1><span class="header-section-number">11</span> Ficheros</h1></section><section id="listados" class="slide level2">
+<h2><span class="header-section-number">11.1</span> Listados</h2>
+<ul>
+<li>Podemos <strong>iterar</strong> de forma sencilla sobre los ficheros y directorios:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def directorio = <span class="kw">new</span> File(<span class="st">&quot;.&quot;</span>)
+
+<span class="co">// imprimimos todo</span>
+directorio.<span class="fu">eachFile</span> { println it }
+
+<span class="co">// imprimimos los subdirectorios</span>
+directorio.<span class="fu">eachDir</span> { println it }
+
+<span class="co">// imprimimos los subdirectorios recursivamente</span>
+directorio.<span class="fu">eachDirRecurse</span> { println it }
+
+<span class="co">// imprimimos los subdirectorios que contengan b</span>
+directorio.<span class="fu">eachDirMatch</span> ~/.*b.*/, {println it}</code></pre>
+</section><section id="escritura" class="slide level2">
+<h2><span class="header-section-number">11.2</span> Escritura</h2>
+<ul>
+<li><strong>Sobreescribe</strong> el fichero:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+file.<span class="fu">write</span> <span class="st">&quot;&quot;&quot;</span>
+Hola
+Todo bien?
+Adios
+<span class="st">&quot;&quot;&quot;</span></code></pre>
+<ul>
+<li><strong>Añade</strong> al final del fichero:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+file &lt;&lt; <span class="st">&quot;P.D. Un beso&quot;</span>
+file.<span class="fu">apend</span> <span class="st">&quot;Otro beso&quot;</span></code></pre>
+</section><section id="lectura" class="slide level2">
+<h2><span class="header-section-number">11.3</span> Lectura</h2>
+<ul>
+<li>Lee <strong>todo el texto</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+println file.<span class="fu">text</span></code></pre>
+<ul>
+<li>Lee el texto <strong>línea a línea</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+file.<span class="fu">eachLine</span> { println <span class="st">&quot;-&gt;$it&quot;</span> }</code></pre>
+</section><section id="tamaños" class="slide level2">
+<h2><span class="header-section-number">11.4</span> Tamaños</h2>
+<ul>
+<li>Para sacar el tamaño <strong>de los ficheros y de las particiones</strong> es parecido a Java:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// tamaño en bytes</span>
+println file.<span class="fu">size</span>()
+
+<span class="co">// bytes libres en la partición actual</span>
+println file.<span class="fu">getFreeSpace</span>()
+
+<span class="co">// bytes disponibles en la máquina virtual</span>
+println file.<span class="fu">getUsableSpace</span>()
+
+<span class="co">// tamaño total en bytes de la parción actual</span>
+println file.<span class="fu">getTotalSpace</span>()</code></pre>
+</section><section id="propiedades-2" class="slide level2">
+<h2><span class="header-section-number">11.5</span> Propiedades</h2>
+<ul>
+<li>Al igual que en Java podemos acceder a las <strong>propiedades de los archivos</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">file.<span class="fu">exists</span>()
+file.<span class="fu">isFile</span>()
+file.<span class="fu">canRead</span>()
+file.<span class="fu">canWrite</span>()
+file.<span class="fu">isDirectory</span>()
+file.<span class="fu">isHidden</span>()</code></pre>
+</section><section id="creación" class="slide level2">
+<h2><span class="header-section-number">11.6</span> Creación</h2>
+<ul>
+<li>Crear un <strong>fichero</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(<span class="st">&quot;kkk.txt&quot;</span>)
+file.<span class="fu">createNewFile</span>()</code></pre>
+<ul>
+<li>Crear un <strong>fichero temporal</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">File.<span class="fu">createTempFile</span>(<span class="st">&quot;kkk&quot;</span>, <span class="st">&quot;txt&quot;</span>)</code></pre>
+<ul>
+<li>Crear <strong>directorios</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def dir = <span class="kw">new</span> File(<span class="st">&quot;kk1/kk2&quot;</span>)
+dir.<span class="fu">mkdirs</span>()</code></pre>
+</section><section id="borrado" class="slide level2">
+<h2><span class="header-section-number">11.7</span> Borrado</h2>
+<ul>
+<li>Para borrar <strong>tanto ficheros como directorios</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">file.<span class="fu">delete</span>()</code></pre>
+</section>
+<section id="xml" class="titleslide slide level1"><h1><span class="header-section-number">12</span> XML</h1></section><section id="builders" class="slide level2">
+<h2><span class="header-section-number">12.1</span> Builders</h2>
+<ul>
+<li><p>Groovy utiliza las listas y los mapas para <strong>parsear datos</strong> de forma sencilla.</p></li>
+<li><p>Aunque podemos crear los nuestros, Groovy viene ya con varios Builders:</p>
+<ul>
+<li><strong>NodeBuilder</strong> - navegación mediante XPath</li>
+<li><strong>DOMBuilder</strong> - navegación mediante DOM</li>
+<li><strong>SAXBuilder</strong> - navegación mediante SAX</li>
+<li><strong>MarkupBuilder</strong> - documentos de XML / HTML</li>
+<li><strong>AntBuilder</strong> - tareas Ant</li>
+<li><strong>SwingBuilder</strong> - interfaces Swing</li>
+</ul></li>
+</ul>
+</section><section id="escritura-xml-i" class="slide level2">
+<h2><span class="header-section-number">12.2</span> Escritura XML (I)</h2>
+<ul>
+<li>Utilizamos <strong>MarkupBuilder</strong>:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def writer = <span class="kw">new</span> StringWriter()
+def builder = <span class="kw">new</span> <span class="fu">MarkupBuilder</span>(writer)
+builder.<span class="fu">setDoubleQuotes</span> <span class="kw">true</span>
+builder.<span class="fu">personas</span>{
+  <span class="fu">persona</span>(id:<span class="st">&quot;1&quot;</span>){
+    nombre <span class="st">&quot;Adolfo&quot;</span>
+    edad <span class="dv">35</span>
+  }
+  <span class="fu">persona</span>(id:<span class="st">&quot;2&quot;</span>){
+    nombre <span class="st">&quot;Alba&quot;</span>
+    edad <span class="dv">25</span>
+  }
+}
+println writer.<span class="fu">toString</span>()</code></pre>
+</section><section id="escritura-xml-ii" class="slide level2">
+<h2><span class="header-section-number">12.3</span> Escritura XML (II)</h2>
+<ul>
+<li>El fichero generado:</li>
+</ul>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;personas&gt;</span>
+  <span class="kw">&lt;persona</span><span class="ot"> id=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;nombre&gt;</span>Adolfo<span class="kw">&lt;/nombre&gt;</span>
+    <span class="kw">&lt;edad&gt;</span>35<span class="kw">&lt;/edad&gt;</span>
+  <span class="kw">&lt;/persona&gt;</span>
+  <span class="kw">&lt;persona</span><span class="ot"> id=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;nombre&gt;</span>Alba<span class="kw">&lt;/nombre&gt;</span>
+    <span class="kw">&lt;edad&gt;</span>25<span class="kw">&lt;/edad&gt;</span>
+  <span class="kw">&lt;/persona&gt;</span>
+<span class="kw">&lt;/personas&gt;</span></code></pre>
+</section><section id="lectura-xml" class="slide level2">
+<h2><span class="header-section-number">12.4</span> Lectura XML</h2>
+<ul>
+<li><strong>XmlParser</strong> lee todo el documento y genera en memoria una estructura parecida al DOM.</li>
+<li>Es más cómodo y rápido una vez leído, pero necesita más memoria RAM.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def personas=<span class="kw">new</span> <span class="fu">XmlParser</span>().<span class="fu">parse</span>(<span class="st">&quot;personas.xml&quot;</span>)
+personas.<span class="fu">each</span> { println it }</code></pre>
+<ul>
+<li><strong>XmlSlurper</strong> hace lectura directa y es más rápido en la primera lectura.</li>
+<li>Viene bien para hacer búsquedas en ficheros grandes.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def personas=<span class="kw">new</span> <span class="fu">XmlSlurper</span>().<span class="fu">parse</span>(<span class="st">&quot;personas.xml&quot;</span>)
+personas.<span class="fu">each</span> { println it }</code></pre>
+</section>
+<section id="plantillas" class="titleslide slide level1"><h1><span class="header-section-number">13</span> Plantillas</h1></section><section id="la-plantilla" class="slide level2">
+<h2><span class="header-section-number">13.1</span> La plantilla</h2>
+<ul>
+<li>En Groovy podemos usar <strong>plantillas</strong> de este estilo:</li>
+</ul>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Informe del ${String.format(&quot;%tA&quot;,fecha)}<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    Estimado ${usuario?.nombre} ${usuario?.apellidos}
+    bla,bla,bla,...
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+</section><section id="parseo" class="slide level2">
+<h2><span class="header-section-number">13.2</span> Parseo</h2>
+<ul>
+<li>Y podemos <strong>parsearlas</strong> de forma sencilla:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def plantilla=<span class="kw">this</span>.<span class="fu">class</span>.<span class="fu">getResource</span>(<span class="st">&quot;plantillaEmail.gtpl&quot;</span>)
+def datos=[
+  <span class="st">&quot;usuario&quot;</span>: <span class="kw">new</span> <span class="fu">Usuario</span>(nombre:<span class="st">&quot;pepe&quot;</span>, apellidos:<span class="st">&quot;perez&quot;</span>),
+  <span class="st">&quot;fecha&quot;</span>:<span class="kw">new</span> Date()]
+def procesador=<span class="kw">new</span> <span class="fu">SimpleTemplateEngine</span>()
+def correo=procesador.<span class="fu">createTemplate</span>(plantilla).<span class="fu">make</span>(datos);
+println correo.<span class="fu">toString</span>()</code></pre>
+</section>
+<section id="expresiones-regulares" class="titleslide slide level1"><h1><span class="header-section-number">14</span> Expresiones regulares</h1></section><section id="uso" class="slide level2">
+<h2><span class="header-section-number">14.1</span> Uso</h2>
+<ul>
+<li><p>Las expresiones regulares se encierran con la barra <strong>( / )</strong>.</p></li>
+<li><p>Con la virgulilla <strong>( ~ )</strong> se hacen las comparaciones.</p></li>
+</ul>
+<pre><code>a?    -&gt; 0 o 1 &#39;a&#39;
+a*    -&gt; 0 o muchas &#39;a&#39;
+a+    -&gt; 1 0 muchas &#39;a&#39;
+a|b   -&gt; &#39;a&#39; o &#39;b&#39;
+.     -&gt; cualquier carácter
+[1-9] -&gt; cualquier número
+[^13] -&gt; cualquier número excepto el &#39;1&#39; y el &#39;3&#39;
+^a    -&gt; empieza por &#39;a&#39;
+a$    -&gt; termina por &#39;a&#39;</code></pre>
+</section><section id="ejemplos-i" class="slide level2">
+<h2><span class="header-section-number">14.2</span> Ejemplos I</h2>
+<ul>
+<li>Ejemplos <strong>sencillos</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// igual a abc</span>
+assert <span class="st">&quot;abc&quot;</span> ==~ /abc/
+
+<span class="co">// empieza por ab</span>
+assert <span class="st">&quot;abcdef&quot;</span> ==~ /^ab.*/
+
+<span class="co">// termina por ef</span>
+assert <span class="st">&quot;abcdef&quot;</span> ==~ /.*ef$/</code></pre>
+</section><section id="ejemplos-ii" class="slide level2">
+<h2><span class="header-section-number">14.3</span> Ejemplos II</h2>
+<ul>
+<li>Ejemplos algo <strong>más elaborados</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// empieza por a termina por d y tiene en medio una b o una c</span>
+assert <span class="st">&quot;abd&quot;</span> ==~ /^a[b|c]d$/
+
+<span class="co">// empieza por a termina por d y tiene en medio cualquier carácter</span>
+assert <span class="st">&quot;acd&quot;</span> ==~ /^a.?d$/
+
+<span class="co">// una o varias a y luego b</span>
+assert <span class="st">&quot;aab&quot;</span> ==~ /a+b/</code></pre>
+</section>
+<section id="fechas" class="titleslide slide level1"><h1><span class="header-section-number">15</span> Fechas</h1></section><section id="hoy" class="slide level2">
+<h2><span class="header-section-number">15.1</span> Hoy</h2>
+<ul>
+<li>Cuando creamos un objeto se crea con <strong>la fecha y la hora actual</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def today = <span class="kw">new</span> Date() </code></pre>
+</section><section id="sumarrestar" class="slide level2">
+<h2><span class="header-section-number">15.2</span> Sumar/Restar</h2>
+<ul>
+<li>Podemos <strong>añadir y sustraer</strong> fechas de forma sencilla:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def tomorrow  = today + <span class="dv">1</span>,
+    dayAfter  = today + <span class="dv">2</span>,
+    yesterday = today - <span class="dv">1</span>,
+    dayBefore = today - <span class="dv">2</span>
+println <span class="st">&quot;dayBefore = $dayBefore&quot;</span>
+println <span class="st">&quot;yesterday = $yesterday&quot;</span>
+println <span class="st">&quot;today     = $today&quot;</span>
+println <span class="st">&quot;tomorrow  = $tomorrow&quot;</span>
+println <span class="st">&quot;dayAfter  = $dayAfter&quot;</span></code></pre>
+</section><section id="comparaciones" class="slide level2">
+<h2><span class="header-section-number">15.3</span> Comparaciones</h2>
+<ul>
+<li>Podemos hacer <strong>comparaciones</strong>:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">println <span class="st">&quot;tomorrow.after(today) = &quot;</span> + tomorrow.<span class="fu">after</span>(today)
+println <span class="st">&quot;yesterday.before(today) = &quot;</span> + yesterday.<span class="fu">before</span>(today)
+println <span class="st">&quot;tomorrow.compareTo(today) = &quot;</span> + tomorrow.<span class="fu">compareTo</span>(today)
+println <span class="st">&quot;tomorrow.compareTo(dayAfter) = &quot;</span> + tomorrow.<span class="fu">compareTo</span>(dayAfter)
+println <span class="st">&quot;dayBefore.compareTo(dayBefore) = &quot;</span> + dayBefore.<span class="fu">compareTo</span>(dayBefore)</code></pre>
+</section><section id="formateo" class="slide level2">
+<h2><span class="header-section-number">15.4</span> Formateo</h2>
+<ul>
+<li>Podemos <strong>formatear fechas</strong> de forma sencilla:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// YYYY/mm/dd</span>
+println String<span class="fu">.format</span>(&#39;Hoy es %tY/%&lt;tm/%&lt;td&#39;, today)
+
+<span class="co">// HH:MM:SS.LLL</span>
+println String<span class="fu">.format</span>(&#39;La hora es %tH:%&lt;tM:%&lt;tS.%&lt;tL&#39;, today)</code></pre>
+</section><section id="parseo-1" class="slide level2">
+<h2><span class="header-section-number">15.5</span> Parseo</h2>
+<ul>
+<li>Tambien podemos <strong>parsear cadenas</strong> en fechas de forma sencilla:</li>
+</ul>
+<pre class="sourceCode Java"><code class="sourceCode java">def date = Date.<span class="fu">parse</span>(<span class="st">&quot;yyyy/MM/dd HH:mm:ss&quot;</span>, <span class="st">&quot;2013/05/01 11:12:13&quot;</span>)</code></pre>
+</section>
+
+<!--footer id="footer">
+  <h4 class="author"> Adolfo Sanz De Diego  - Abril 2013</h4>
+</footer-->
+
+<!-- deck goto extension html -->
+<form action="." method="get" class="goto-form">
+  <label for="goto-slide">Go to slide:</label>
+  <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  <datalist id="goto-datalist"></datalist>
+  <input type="submit" value="Go">
+</form>
+
+<!-- deck navigation extension html -->
+<div aria-role="navigation">
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+</div>
+
+<!-- deck status extension html -->
+<p class="deck-status" aria-role="status">
+  <span class="deck-status-current"></span>
+  /
+  <span class="deck-status-total"></span>
+</p>
+
+<!-- jquery  -->
+<script src="../lib/deck.js-master/jquery.min.js"></script>
+
+<!-- deck core js  -->
+<script src="../lib/deck.js-master/core/deck.core.js"></script>
+
+<!-- deck extension js -->
+<script src="../lib/deck.js-master/extensions/goto/deck.goto.js"></script>
+<script src="../lib/deck.js-master/extensions/menu/deck.menu.js"></script>
+<script src="../lib/deck.js-master/extensions/navigation/deck.navigation.js"></script>
+<script src="../lib/deck.js-master/extensions/scale/deck.scale.js"></script>
+<script src="../lib/deck.js-master/extensions/status/deck.status.js"></script>
+<!--script src="../lib/deck.search.js-master/search/deck.search.js"></script-->
+
+<!-- Initialize the deck. -->
+<script>
+$(function() {
+    $.deck('.slide');
+});
+</script>
+
+</body>
+</html>

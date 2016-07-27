@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Groovy" />
+  <meta name="author" content="Adolfo Sanz De Diego" />
+  <title>Groovy</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; }
+code > span.dt { color: #204a87; }
+code > span.dv { color: #0000cf; }
+code > span.bn { color: #0000cf; }
+code > span.fl { color: #0000cf; }
+code > span.ch { color: #4e9a06; }
+code > span.st { color: #4e9a06; }
+code > span.co { color: #8f5902; font-style: italic; }
+code > span.ot { color: #8f5902; }
+code > span.al { color: #ef2929; }
+code > span.fu { color: #000000; }
+code > span.er { font-weight: bold; }
+  </style>
+</head>
+<body>
+<header>
+<h1 class="title">Groovy</h1>
+<h2 class="author">Adolfo Sanz De Diego</h2>
+<h3 class="date">Abril 2013</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#acerca-de"><span class="toc-section-number">1</span> Acerca de</a><ul>
+<li><a href="#autor"><span class="toc-section-number">1.1</span> Autor</a></li>
+<li><a href="#licencia"><span class="toc-section-number">1.2</span> Licencia</a></li>
+</ul></li>
+<li><a href="#introducción"><span class="toc-section-number">2</span> Introducción</a><ul>
+<li><a href="#perspectiva-general"><span class="toc-section-number">2.1</span> Perspectiva general</a></li>
+<li><a href="#helloworld.java"><span class="toc-section-number">2.2</span> HelloWorld.java</a></li>
+<li><a href="#helloworld.groovy"><span class="toc-section-number">2.3</span> HelloWorld.groovy</a></li>
+<li><a href="#helloworld.groovy-1"><span class="toc-section-number">2.4</span> HelloWorld.groovy</a></li>
+<li><a href="#otros-aspectos"><span class="toc-section-number">2.5</span> Otros aspectos</a></li>
+</ul></li>
+<li><a href="#instalación-y-configuración"><span class="toc-section-number">3</span> Instalación y configuración</a><ul>
+<li><a href="#jdk"><span class="toc-section-number">3.1</span> JDK</a></li>
+<li><a href="#groovy-sdk"><span class="toc-section-number">3.2</span> Groovy-SDK</a></li>
+<li><a href="#probando"><span class="toc-section-number">3.3</span> Probando</a></li>
+</ul></li>
+<li><a href="#ejecución"><span class="toc-section-number">4</span> Ejecución</a><ul>
+<li><a href="#scripts"><span class="toc-section-number">4.1</span> Scripts</a></li>
+<li><a href="#groovy-shell"><span class="toc-section-number">4.2</span> Groovy Shell</a></li>
+<li><a href="#groovy-console"><span class="toc-section-number">4.3</span> Groovy Console</a></li>
+<li><a href="#compilación"><span class="toc-section-number">4.4</span> Compilación</a></li>
+</ul></li>
+<li><a href="#cadenas-de-texto"><span class="toc-section-number">5</span> Cadenas de texto</a><ul>
+<li><a href="#strings"><span class="toc-section-number">5.1</span> Strings</a></li>
+<li><a href="#gstrings"><span class="toc-section-number">5.2</span> GStrings</a></li>
+<li><a href="#heredocs"><span class="toc-section-number">5.3</span> Heredocs</a></li>
+</ul></li>
+<li><a href="#closures"><span class="toc-section-number">6</span> Closures</a><ul>
+<li><a href="#definición"><span class="toc-section-number">6.1</span> Definición</a></li>
+<li><a href="#curry"><span class="toc-section-number">6.2</span> Curry</a></li>
+<li><a href="#parámetros"><span class="toc-section-number">6.3</span> Parámetros</a></li>
+</ul></li>
+<li><a href="#rangos"><span class="toc-section-number">7</span> Rangos</a><ul>
+<li><a href="#numéricos"><span class="toc-section-number">7.1</span> Numéricos</a></li>
+<li><a href="#otros"><span class="toc-section-number">7.2</span> Otros</a></li>
+<li><a href="#propiedades"><span class="toc-section-number">7.3</span> Propiedades</a></li>
+<li><a href="#switchs"><span class="toc-section-number">7.4</span> Switchs</a></li>
+</ul></li>
+<li><a href="#listas"><span class="toc-section-number">8</span> Listas</a><ul>
+<li><a href="#añadir"><span class="toc-section-number">8.1</span> Añadir</a></li>
+<li><a href="#recuperarmodificar"><span class="toc-section-number">8.2</span> Recuperar/Modificar</a></li>
+<li><a href="#eliminar"><span class="toc-section-number">8.3</span> Eliminar</a></li>
+<li><a href="#iterar"><span class="toc-section-number">8.4</span> Iterar</a></li>
+<li><a href="#ordenar"><span class="toc-section-number">8.5</span> Ordenar</a></li>
+<li><a href="#operadores-y--"><span class="toc-section-number">8.6</span> Operadores + y -</a></li>
+<li><a href="#max-y-min"><span class="toc-section-number">8.7</span> Max y min</a></li>
+<li><a href="#aplanar"><span class="toc-section-number">8.8</span> Aplanar</a></li>
+<li><a href="#join-y-disjoint"><span class="toc-section-number">8.9</span> Join y disjoint</a></li>
+<li><a href="#intersección"><span class="toc-section-number">8.10</span> Intersección</a></li>
+<li><a href="#unicidad"><span class="toc-section-number">8.11</span> Unicidad</a></li>
+<li><a href="#búsqueda"><span class="toc-section-number">8.12</span> Búsqueda</a></li>
+<li><a href="#sumatorio"><span class="toc-section-number">8.13</span> Sumatorio</a></li>
+</ul></li>
+<li><a href="#mapas"><span class="toc-section-number">9</span> Mapas</a><ul>
+<li><a href="#añadir-1"><span class="toc-section-number">9.1</span> Añadir</a></li>
+<li><a href="#recuperarmodificar-1"><span class="toc-section-number">9.2</span> Recuperar/modificar</a></li>
+<li><a href="#eliminar-1"><span class="toc-section-number">9.3</span> Eliminar</a></li>
+<li><a href="#iterar-1"><span class="toc-section-number">9.4</span> Iterar</a></li>
+<li><a href="#operadores-y---1"><span class="toc-section-number">9.5</span> Operadores + y -</a></li>
+<li><a href="#keys-y-values"><span class="toc-section-number">9.6</span> Keys y Values</a></li>
+</ul></li>
+<li><a href="#meta-programación"><span class="toc-section-number">10</span> Meta Programación</a><ul>
+<li><a href="#qué-es-y-para-qué-sirve"><span class="toc-section-number">10.1</span> ¿Qué es y para qué sirve?</a></li>
+<li><a href="#reflection"><span class="toc-section-number">10.2</span> Reflection</a></li>
+<li><a href="#expandos"><span class="toc-section-number">10.3</span> Expandos</a></li>
+<li><a href="#propiedades-1"><span class="toc-section-number">10.4</span> Propiedades</a></li>
+<li><a href="#propiedades-dinámicas"><span class="toc-section-number">10.5</span> Propiedades dinámicas</a></li>
+<li><a href="#punteros"><span class="toc-section-number">10.6</span> Punteros</a></li>
+<li><a href="#categorías"><span class="toc-section-number">10.7</span> Categorías</a></li>
+<li><a href="#métodos"><span class="toc-section-number">10.8</span> Métodos</a></li>
+<li><a href="#ejecutando-con-gstrings"><span class="toc-section-number">10.9</span> Ejecutando con GStrings</a></li>
+<li><a href="#interceptando-métodos"><span class="toc-section-number">10.10</span> Interceptando métodos</a></li>
+<li><a href="#métodos-dinámicos"><span class="toc-section-number">10.11</span> Métodos dinámicos</a></li>
+</ul></li>
+<li><a href="#ficheros"><span class="toc-section-number">11</span> Ficheros</a><ul>
+<li><a href="#listados"><span class="toc-section-number">11.1</span> Listados</a></li>
+<li><a href="#escritura"><span class="toc-section-number">11.2</span> Escritura</a></li>
+<li><a href="#lectura"><span class="toc-section-number">11.3</span> Lectura</a></li>
+<li><a href="#tamaños"><span class="toc-section-number">11.4</span> Tamaños</a></li>
+<li><a href="#propiedades-2"><span class="toc-section-number">11.5</span> Propiedades</a></li>
+<li><a href="#creación"><span class="toc-section-number">11.6</span> Creación</a></li>
+<li><a href="#borrado"><span class="toc-section-number">11.7</span> Borrado</a></li>
+</ul></li>
+<li><a href="#xml"><span class="toc-section-number">12</span> XML</a><ul>
+<li><a href="#builders"><span class="toc-section-number">12.1</span> Builders</a></li>
+<li><a href="#escritura-xml"><span class="toc-section-number">12.2</span> Escritura XML</a></li>
+<li><a href="#lectura-xml"><span class="toc-section-number">12.3</span> Lectura XML</a></li>
+</ul></li>
+<li><a href="#plantillas"><span class="toc-section-number">13</span> Plantillas</a><ul>
+<li><a href="#la-plantilla"><span class="toc-section-number">13.1</span> La plantilla</a></li>
+<li><a href="#parseo"><span class="toc-section-number">13.2</span> Parseo</a></li>
+</ul></li>
+<li><a href="#expresiones-regulares"><span class="toc-section-number">14</span> Expresiones regulares</a><ul>
+<li><a href="#uso"><span class="toc-section-number">14.1</span> Uso</a></li>
+<li><a href="#ejemplos-i"><span class="toc-section-number">14.2</span> Ejemplos I</a></li>
+<li><a href="#ejemplos-ii"><span class="toc-section-number">14.3</span> Ejemplos II</a></li>
+</ul></li>
+<li><a href="#fechas"><span class="toc-section-number">15</span> Fechas</a><ul>
+<li><a href="#hoy"><span class="toc-section-number">15.1</span> Hoy</a></li>
+<li><a href="#sumarrestar"><span class="toc-section-number">15.2</span> Sumar/Restar</a></li>
+<li><a href="#comparaciones"><span class="toc-section-number">15.3</span> Comparaciones</a></li>
+<li><a href="#formateo"><span class="toc-section-number">15.4</span> Formateo</a></li>
+<li><a href="#parseo-1"><span class="toc-section-number">15.5</span> Parseo</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="acerca-de"><span class="header-section-number">1</span> Acerca de</h1>
+<h2 id="autor"><span class="header-section-number">1.1</span> Autor</h2>
+<p><strong>Adolfo Sanz De Diego</strong></p>
+<ul>
+<li><p>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></p></li>
+<li><p>Twitter: <span class="citation" data-cites="asanzdiego">[@asanzdiego]</span>(http://twitter.com/asanzdiego)</p></li>
+<li><p>Linkedin: <a href="http://www.linkedin.com/in/asanzdiego">http://www.linkedin.com/in/asanzdiego</a></p></li>
+<li><p>Blog: <a href="http://asanzdiego.blogspot.com.es">http://asanzdiego.blogspot.com.es</a></p></li>
+</ul>
+<h2 id="licencia"><span class="header-section-number">1.2</span> Licencia</h2>
+<p><strong>Este obra está bajo una licencia:</strong></p>
+<ul>
+<li><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></li>
+</ul>
+<p><strong>El código fuente de los programas están bajo una licencia:</strong></p>
+<ul>
+<li><a href="http://www.viti.es/gnu/licenses/gpl.html">GPL 3.0</a></li>
+</ul>
+<h1 id="introducción"><span class="header-section-number">2</span> Introducción</h1>
+<h2 id="perspectiva-general"><span class="header-section-number">2.1</span> Perspectiva general</h2>
+<p>Groovy es un <strong>lenguaje dinámico, orientado a objetos</strong>, muy íntimamente ligado a Java.</p>
+<p>Groovy <strong>simplifica la sintaxis de Java</strong> convirtiendo multitud de tareas en un placer.</p>
+<p>Groovy <strong>comparte con Java</strong> el mismo modelo de objetos, de hilos y de seguridad.</p>
+<p>Groovy puede usarse también de manera dinámica como un lenguaje de <strong>scripting</strong>.</p>
+<p>El 99% del <strong>código Java puede ser compilado con groovy</strong>.</p>
+<p>El 100% del <strong>código Groovy es convertido en bytecode Java</strong>, y ejecutado en la JVM.</p>
+<p>Los programadores Java nos podemos <strong>introducirnos en Groovy poco a poco</strong>.</p>
+<p>Su <strong>curva de aprendizaje es casi plana</strong> para programadores Java.</p>
+<h2 id="helloworld.java"><span class="header-section-number">2.2</span> HelloWorld.java</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+
+  <span class="kw">private</span> String nombre;
+  
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>();
+    hw.<span class="fu">setNombre</span>(<span class="st">&quot;Groovy&quot;</span>);
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>());
+  }
+
+  <span class="kw">public</span> String <span class="fu">getNombre</span>() {
+    <span class="kw">return</span> nombre;
+  }
+
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setNombre</span>(String nombre) {
+    <span class="kw">this</span>.<span class="fu">nombre</span> = nombre;
+  }
+
+  <span class="kw">public</span> String <span class="fu">saluda</span>() {
+    <span class="kw">return</span> <span class="st">&quot;Hola &quot;</span> + nombre;
+  }
+}</code></pre>
+<h2 id="helloworld.groovy"><span class="header-section-number">2.3</span> HelloWorld.groovy</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+
+  <span class="kw">private</span> String nombre;
+  
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>();
+    hw.<span class="fu">setNombre</span>(<span class="st">&quot;Groovy&quot;</span>);
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>());
+  }
+
+  <span class="kw">public</span> String <span class="fu">getNombre</span>() {
+    <span class="kw">return</span> nombre;
+  }
+
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setNombre</span>(String nombre) {
+    <span class="kw">this</span>.<span class="fu">nombre</span> = nombre;
+  }
+
+  <span class="kw">public</span> String <span class="fu">saluda</span>() {
+    <span class="kw">return</span> <span class="st">&quot;Hola &quot;</span> + nombre;
+  }
+}</code></pre>
+<h2 id="helloworld.groovy-1"><span class="header-section-number">2.4</span> HelloWorld.groovy</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+
+  <span class="kw">private</span> String nombre;
+  
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>();
+    hw.<span class="fu">nombre</span> = <span class="st">&quot;Groovy&quot;</span>;
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>());
+  }
+
+  <span class="kw">public</span> String <span class="fu">saluda</span>() {
+    <span class="kw">return</span> <span class="st">&quot;Hola &quot;</span> + nombre;
+  }
+}</code></pre>
+<p><strong>Getters y setters autogenerados</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> HelloWorld {
+
+  String nombre
+  
+  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>()
+    hw.<span class="fu">nombre</span> = <span class="st">&quot;Groovy&quot;</span>
+    System.<span class="fu">out</span>.<span class="fu">println</span>(hw.<span class="fu">saluda</span>())
+  }
+
+  String <span class="fu">saluda</span>() {
+    <span class="st">&quot;Hola &quot;</span> + nombre
+  }
+}</code></pre>
+<p><strong>Clases y métodos public por defecto</strong>.</p>
+<p><strong>Atributos private por defecto</strong>.</p>
+<p><strong>punto y coma opcionales</strong>.</p>
+<p><strong>return opcional</strong> (por defecto la última línea)</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> HelloWorld {
+
+  def nombre
+  
+  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(args) {
+    HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>()
+    hw.<span class="fu">nombre</span> = <span class="st">&quot;Groovy&quot;</span>
+    println hw.<span class="fu">saluda</span>()
+  }
+
+  def <span class="fu">saluda</span>() {
+    <span class="st">&quot;Hola &quot;</span> + nombre
+  }
+}</code></pre>
+<p><strong>tipado dinámico</strong>.</p>
+<p><strong>println</strong> alias de System.out.println.</p>
+<p><strong>paréntesis opcionales</strong> cuando hay parámetros.</p>
+<pre class="sourceCode java"><code class="sourceCode java">HelloWorld hw = <span class="kw">new</span> <span class="fu">HelloWorld</span>()
+hw.<span class="fu">setNombre</span> <span class="st">&quot;Groovy&quot;</span>
+println hw.<span class="fu">saluda</span>()
+
+<span class="kw">class</span> HelloWorld {
+
+  def nombre
+
+  def <span class="fu">saluda</span>() {
+    <span class="st">&quot;Hola ${nombre}&quot;</span>
+  }
+}</code></pre>
+<p><strong>declaración de classes y método main opcional en scripts</strong>.</p>
+<h2 id="otros-aspectos"><span class="header-section-number">2.5</span> Otros aspectos</h2>
+<p><strong>imports por defecto</strong> (java.io.<em>, java.lang.</em>, java.math.BigDecimal, java.math.BigInteger, java.net.<em>, java.util.</em>, groovy.lang.<em>, groovy.util.</em>)</p>
+<p>Todas las <strong>excepciones son de tipo RunTimeException</strong> (ni declararlas, ni capturarlas)</p>
+<p><strong>Sobrecarga de operadores</strong> (plus, minus, multiply, div, mod, or, and, next, previous, ...) <a href="http://groovy.codehaus.org/Operator+Overloading">ver documentación</a></p>
+<p>Todos <strong>los tipos primitivos son tratados como objetos</strong> (autoboxing)</p>
+<p>Todos <strong>los decimales son tratados como BigDecimal</strong> para evitar la inexactitud de las clases Float y Double.</p>
+<p>Siempre que se evalue un <strong>valor cero, null, un String vacío, una coleccion vacía, un array de longitud cero o un StringBuilder/StringBuffer vacío, se obtendrá false</strong>. En cualquier otra situación, se obtendrá true.</p>
+<p>El <strong>operador == está sobrecargado</strong> en el método equals()</p>
+<p>El == de Java se puede usar con el método is()</p>
+<p>Uso de la <strong>anotación <span class="citation" data-cites="PackageScope">@PackageScope</span> para la visibilidad package-scope</strong>.</p>
+<p>Uso de <strong>maps en los constructores</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Persona {
+    def nombre
+    def edad
+}
+
+def persona = <span class="kw">new</span> <span class="fu">Person</span>(nombre: <span class="st">&quot;Alba&quot;</span>, edad: <span class="dv">5</span>)</code></pre>
+<p><strong>Operador referencia segura (?.)</strong> que se pone antes del punto y que si el objeto es null devuelve null y en caso contrario devuelve lo que sigue al punto.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">if</span> (order != <span class="kw">null</span>) {
+  <span class="kw">if</span> (order.<span class="fu">getCustomer</span>() != <span class="kw">null</span>) {
+    <span class="kw">if</span> (order.<span class="fu">getCustomer</span>().<span class="fu">getAddress</span>() != <span class="kw">null</span>) {
+      System.<span class="fu">out</span>.<span class="fu">println</span>(order.<span class="fu">getCustomer</span>().<span class="fu">getAddress</span>());
+    }
+  }
+}</code></pre>
+<p>El código anterior se simplifica:</p>
+<pre class="sourceCode java"><code class="sourceCode java">println order?.<span class="fu">customer</span>?.<span class="fu">address</span></code></pre>
+<p><strong>Operador Elvis (?:)</strong> para valores por defecto.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def result = name != <span class="kw">null</span> ? name : <span class="st">&quot;Unknown&quot;</span></code></pre>
+<p>El código anterior se simplifica:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def result = name ?: <span class="st">&quot;Unknown&quot;</span></code></pre>
+<p>Uso intensivo de <strong>asserts</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def <span class="fu">check</span>(String name) {
+
+    <span class="co">// name non-null, non-empty and size &gt; 3</span>
+    assert name?.<span class="fu">size</span>() &gt; <span class="dv">3</span>
+}</code></pre>
+<h1 id="instalación-y-configuración"><span class="header-section-number">3</span> Instalación y configuración</h1>
+<h2 id="jdk"><span class="header-section-number">3.1</span> JDK</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">JAVA_HOME=</span><span class="st">&quot;~/Java/jdk&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$JAVA_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+<h2 id="groovy-sdk"><span class="header-section-number">3.2</span> Groovy-SDK</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">GROOVY_HOME=</span><span class="st">&quot;~/Java/groovy&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$GROOVY_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+<h2 id="probando"><span class="header-section-number">3.3</span> Probando</h2>
+<pre><code>$ groovy --version
+Groovy Version: 2.1.2
+JVM: 1.7.0_21 Vendor: Oracle Corporation OS: Linux</code></pre>
+<h1 id="ejecución"><span class="header-section-number">4</span> Ejecución</h1>
+<h2 id="scripts"><span class="header-section-number">4.1</span> Scripts</h2>
+<p><strong>Ejecución directa</strong> (compila a .class y ejecuta directamente)</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovy</span> HelloWorld.groovy</code></pre>
+<h2 id="groovy-shell"><span class="header-section-number">4.2</span> Groovy Shell</h2>
+<p>Se abre una <strong>shell de groovy</strong>, con historial de comandos.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovysh</span></code></pre>
+<h2 id="groovy-console"><span class="header-section-number">4.3</span> Groovy Console</h2>
+<p>Funciona en <strong>modo gráfico</strong> y permite opciones mas potentes que la shell, como guardar y cargar archivos, opciones de edición de texto, etc.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovyConsole</span></code></pre>
+<h2 id="compilación"><span class="header-section-number">4.4</span> Compilación</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovyc</span> helloworld.groovy</code></pre>
+<p>Luego se puede ejecutar directamente el .class</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">groovy</span> helloworld</code></pre>
+<h1 id="cadenas-de-texto"><span class="header-section-number">5</span> Cadenas de texto</h1>
+<h2 id="strings"><span class="header-section-number">5.1</span> Strings</h2>
+<p>Similares a las de Java pero <strong>podemos usar tanto comillas dobles como simples</strong>.</p>
+<p>Las comillas simples no interpreta las variables, las dobles sí</p>
+<h2 id="gstrings"><span class="header-section-number">5.2</span> GStrings</h2>
+<p>Contienen <strong>expresiones embebidas</strong>.</p>
+<p>Las expresiones se introducen con ${} y son <strong>evaluadas en tiempo de ejecución</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def saldo = <span class="fl">1821.14</span> 
+def mensaje = <span class="st">&quot;El saldo a fecha ${new Date()} es de ${saldo} euros&quot;</span> 
+println mensaje </code></pre>
+<h2 id="heredocs"><span class="header-section-number">5.3</span> Heredocs</h2>
+<p>Se forma con <strong>tres comillas simples o dobles</strong>.</p>
+<p>Nos permiten cadenas de <strong>texto multilinea</strong>.</p>
+<p>Nos permiten también <strong>mezclar comillas simples y dobles en su interior</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def multilinea = <span class="st">&quot;&quot;&quot; </span>
+Primera linea 
+Segunda linea 
+Tercera linea con <span class="st">&quot;comillas dobles&quot;</span> y &#39;comillas simples&#39; 
+<span class="st">&quot;&quot;&quot; </span>
+println multilinea </code></pre>
+<h1 id="closures"><span class="header-section-number">6</span> Closures</h1>
+<h2 id="definición"><span class="header-section-number">6.1</span> Definición</h2>
+<p><strong>Bloque de código autónomo</strong> que puede usarse en distintos sitios.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def saludar = { nombre, apellido -&gt; 
+    println <span class="st">&quot;¡Hola ${nombre} ${apellido}!&quot;</span> 
+} 
+saludar <span class="st">&quot;Alba&quot;</span>, <span class="st">&quot;Sanz&quot;</span> </code></pre>
+<h2 id="curry"><span class="header-section-number">6.2</span> Curry</h2>
+<p>Nos permite <strong>pre-cargar valores</strong> que serán siempre los mismos para una determinada función.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def multiplicar = { valor1, valor2 -&gt; 
+    valor1 * valor2 
+} 
+
+def doble = multiplicar.<span class="fu">curry</span>(<span class="dv">2</span>) 
+def triple = multiplicar.<span class="fu">curry</span>(<span class="dv">3</span>) 
+
+println <span class="fu">doble</span>(<span class="dv">7</span>) 
+println <span class="fu">triple</span>(<span class="dv">7</span>) </code></pre>
+<h2 id="parámetros"><span class="header-section-number">6.3</span> Parámetros</h2>
+<p>Las closures pueden ser utilizadas como <strong>argumentos de una función</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def <span class="fu">repetirClosure</span>(<span class="dt">int</span> numRepeticiones, Closure closure) { 
+  <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; numRepeticiones; i++) { 
+    closure.<span class="fu">call</span>(i) 
+  } 
+} 
+
+def closure = { println it } 
+<span class="fu">repetirClosure</span>(<span class="dv">5</span>, closure) </code></pre>
+<h1 id="rangos"><span class="header-section-number">7</span> Rangos</h1>
+<h2 id="numéricos"><span class="header-section-number">7.1</span> Numéricos</h2>
+<p>Imprime 5 números del 1 al 5 inclusive.</p>
+<pre class="sourceCode java"><code class="sourceCode java">(<span class="dv">1</span>..<span class="dv">5</span>).<span class="fu">each</span> { 
+    println it 
+}</code></pre>
+<p>Imprime 4 números del 1 al 4.</p>
+<pre class="sourceCode java"><code class="sourceCode java">(<span class="dv">1</span>..&lt;<span class="dv">5</span>).<span class="fu">each</span> { 
+    println it 
+}</code></pre>
+<h2 id="otros"><span class="header-section-number">7.2</span> Otros</h2>
+<p>Fechas</p>
+<pre class="sourceCode java"><code class="sourceCode java">def hoy = <span class="kw">new</span> Date() 
+def dentroDeSieteDias = hoy + <span class="dv">7</span> 
+(hoy..<span class="fu">dentroDeSieteDias</span>).<span class="fu">each</span> { dia -&gt; 
+    println dia 
+} </code></pre>
+<p>Letras</p>
+<pre class="sourceCode java"><code class="sourceCode java">(&#39;a&#39;..&#39;z&#39;).<span class="fu">each</span> { letra -&gt; 
+    println letra 
+} </code></pre>
+<h2 id="propiedades"><span class="header-section-number">7.3</span> Propiedades</h2>
+<p>Algunos atributos y métodos:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def rango = <span class="dv">5</span>..<span class="dv">10</span> 
+println rango.<span class="fu">from</span> 
+println rango.<span class="fu">to</span> 
+println rango.<span class="fu">contains</span>(<span class="dv">4</span>) 
+println rango.<span class="fu">size</span>() 
+println rango.<span class="fu">get</span>(<span class="dv">3</span>) 
+println rango[<span class="dv">3</span>] </code></pre>
+<h2 id="switchs"><span class="header-section-number">7.4</span> Switchs</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def sueldo = <span class="dv">1700</span>; 
+<span class="kw">switch</span>(sueldo) { 
+    <span class="kw">case</span> <span class="dv">600</span>..&lt;<span class="dv">1200</span>: 
+        println &#39;nivel <span class="dv">1</span>&#39; 
+        <span class="kw">break</span> 
+    <span class="kw">case</span> <span class="dv">1200</span>..&lt;<span class="dv">1800</span>: 
+        println &#39;nivel <span class="dv">2</span>&#39; 
+        <span class="kw">break</span> 
+} </code></pre>
+<h1 id="listas"><span class="header-section-number">8</span> Listas</h1>
+<h2 id="añadir"><span class="header-section-number">8.1</span> Añadir</h2>
+<p>Se añaden por <strong>índice</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def paises = [<span class="st">&quot;España&quot;</span>, <span class="st">&quot;Mexico&quot;</span>]
+paises &lt;&lt; <span class="st">&quot;Argentina&quot;</span> 
+paises.<span class="fu">add</span>(<span class="st">&quot;Ecuador&quot;</span>) </code></pre>
+<h2 id="recuperarmodificar"><span class="header-section-number">8.2</span> Recuperar/Modificar</h2>
+<p>Se recuperan también por <strong>índice</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">paises[<span class="dv">3</span>] = <span class="st">&quot;Colombia&quot;</span> 
+paises[<span class="dv">6</span>] = <span class="st">&quot;Ecuador&quot;</span> 
+
+println paises[<span class="dv">0</span>] 
+println paises.<span class="fu">getAt</span>(<span class="dv">1</span>)
+println paises </code></pre>
+<h2 id="eliminar"><span class="header-section-number">8.3</span> Eliminar</h2>
+<p>Lanza un <strong>NullPointerException</strong> si no existe nada en el índice 6.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def eliminado1 = paises.<span class="fu">remove</span>(<span class="dv">6</span>) </code></pre>
+<p>Devuelve un <strong>null</strong> si no hay ningún objeto coincidente.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def eliminado2 = paises.<span class="fu">remove</span>(<span class="st">&quot;Ecuador&quot;</span>) </code></pre>
+<p>Elimina el objeto con el <strong>índice más alto</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def eliminado = paises.<span class="fu">pop</span>()</code></pre>
+<h2 id="iterar"><span class="header-section-number">8.4</span> Iterar</h2>
+<p><strong>Iterar</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">paises.<span class="fu">each</span> { 
+  println it.<span class="fu">toUpperCase</span>() 
+}</code></pre>
+<p>Iterar <strong>con índice</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">paises.<span class="fu">eachWithIndex</span> { pais, indice -&gt; 
+  println <span class="st">&quot;${pais} se encuentra en la posición ${indice}&quot;</span> 
+} </code></pre>
+<p>Iterar sobre cada elemento y <strong>devolver otra lista</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def paisesMayusculas = paises.<span class="fu">collect</span> { pais -&gt; 
+    pais.<span class="fu">toUpperCase</span>() 
+} </code></pre>
+<h2 id="ordenar"><span class="header-section-number">8.5</span> Ordenar</h2>
+<p><strong>Ordenar</strong> la lista original:</p>
+<pre class="sourceCode java"><code class="sourceCode java">paises.<span class="fu">sort</span>()</code></pre>
+<p>Devuelve una lista <strong>invertida</strong>, sin modificar la original:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def paisesInvertidos = paises.<span class="fu">reverse</span>() </code></pre>
+<h2 id="operadores-y--"><span class="header-section-number">8.6</span> Operadores + y -</h2>
+<p>El operador <strong>+=</strong> y el operador <strong>-=</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java">def pares = [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>] 
+def impares = [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>] 
+
+pares += impares
+pares.<span class="fu">sort</span>() 
+println pares 
+
+pares -= impares
+println pares</code></pre>
+<h2 id="max-y-min"><span class="header-section-number">8.7</span> Max y min</h2>
+<p>Valores <strong>máximo y mínimo</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">println letras.<span class="fu">max</span>() 
+println letras.<span class="fu">min</span>()</code></pre>
+<h2 id="aplanar"><span class="header-section-number">8.8</span> Aplanar</h2>
+<p>La función <strong>flatten</strong> aplana una lista anidada:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, [&#39;c&#39;, &#39;d&#39;], &#39;f&#39;].<span class="fu">flatten</span>() == [&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;f&#39;])</code></pre>
+<h2 id="join-y-disjoint"><span class="header-section-number">8.9</span> Join y disjoint</h2>
+<p>La función <strong>join</strong> convierte la lista en el String a-b-c</p>
+<pre class="sourceCode java"><code class="sourceCode java">def letras = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;] 
+println letras.<span class="fu">join</span>(<span class="st">&quot;-&quot;</span>) </code></pre>
+<p>La función <strong>disjoint</strong> nos devuelve <strong>true</strong> si las 2 listas son <strong>disjuntas</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;].<span class="fu">disjoint</span>([&#39;b&#39;, &#39;e&#39;, &#39;f&#39;]) == <span class="kw">true</span> </code></pre>
+<h2 id="intersección"><span class="header-section-number">8.10</span> Intersección</h2>
+<p>La función <strong>intersect</strong> nos devuelve los <strong>elementos comunes</strong> entre 2 listas:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;].<span class="fu">disjoint</span>([&#39;b&#39;, &#39;c&#39;, &#39;d&#39;]) == [&#39;c&#39;, &#39;d&#39;]</code></pre>
+<h2 id="unicidad"><span class="header-section-number">8.11</span> Unicidad</h2>
+<p>La función <strong>unique</strong> quita los duplicados:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[&#39;a&#39;, &#39;c&#39;, &#39;a&#39;, &#39;d&#39;].<span class="fu">unique</span>() == [&#39;a&#39;, &#39;c&#39;, &#39;d&#39;]</code></pre>
+<h2 id="búsqueda"><span class="header-section-number">8.12</span> Búsqueda</h2>
+<p>La función <strong>find</strong>, que admite una closure, devuelve el primer elemento encontrado:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">find</span> { it % <span class="dv">2</span> == <span class="dv">0</span> } == <span class="dv">2</span></code></pre>
+<p>La función <strong>findAll</strong>, que admite una closure, devuelve todos los elementos encontrados:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">findAll</span> { it % <span class="dv">2</span> == <span class="dv">0</span> } == [<span class="dv">2</span>, <span class="dv">4</span>]</code></pre>
+<h2 id="sumatorio"><span class="header-section-number">8.13</span> Sumatorio</h2>
+<p>La función <strong>sum</strong>, que admite una closure, devuelve la suma de los elementos:</p>
+<pre class="sourceCode java"><code class="sourceCode java">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">sum</span>() == <span class="dv">10</span>
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>].<span class="fu">sum</span> { it % <span class="dv">2</span> == <span class="dv">0</span> } == <span class="dv">6</span></code></pre>
+<p>El operador <strong>*</strong>, que ejecuta un método del objeto para todos los objetos de la lista:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Persona
+  def nombre
+  def <span class="fu">imprimir</span>() {
+    println nombre
+  }
+}
+
+def personas = [<span class="kw">new</span> <span class="fu">Persona</span>(nombre:<span class="st">&quot;Alba&quot;</span>), <span class="kw">new</span> <span class="fu">Persona</span>(nombre:<span class="st">&quot;Laura&quot;</span>)]
+personas*.<span class="fu">imprimir</span>()</code></pre>
+<h1 id="mapas"><span class="header-section-number">9</span> Mapas</h1>
+<h2 id="añadir-1"><span class="header-section-number">9.1</span> Añadir</h2>
+<p>Se añaden pares <strong>clave-valor</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def capitales = [&#39;Madrid&#39;:&#39;España&#39;, &#39;Mexico D.<span class="fu">F</span>.&#39;:&#39;Mexico&#39;]
+capitales.<span class="fu">put</span>(&#39;Buenos Aires&#39;, &#39;Argentina&#39;) </code></pre>
+<h2 id="recuperarmodificar-1"><span class="header-section-number">9.2</span> Recuperar/modificar</h2>
+<p>Se modificar/recuperar los pares <strong>clave-valor</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">capitales.<span class="fu">get</span>(&#39;Madrid&#39;) 
+capitales.<span class="fu">Madrid</span>
+capitales[&#39;Madrid&#39;]
+capitales.&#39;Buenos Aires&#39; = Argentina
+capitales[&#39;Buenos Aires&#39;] = &#39;Argentina&#39;</code></pre>
+<h2 id="eliminar-1"><span class="header-section-number">9.3</span> Eliminar</h2>
+<p><strong>Eliminar</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">capitales.<span class="fu">remove</span>(&#39;Buenos Aires&#39;) </code></pre>
+<h2 id="iterar-1"><span class="header-section-number">9.4</span> Iterar</h2>
+<p><strong>Iterar</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">capitales.<span class="fu">each</span> { capital, pais -&gt; 
+    println <span class="st">&quot;La capital de ${pais} es ${capital}&quot;</span> 
+} </code></pre>
+<h2 id="operadores-y---1"><span class="header-section-number">9.5</span> Operadores + y -</h2>
+<p>Operador <strong>+=</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def angloParlantes = [&#39;Washington&#39;:&#39;EEUU&#39;, &#39;Londres&#39;:&#39;Reino Unido&#39;] 
+capitales += angloParlantes</code></pre>
+<p>El operador <strong>-=</strong> no está soportado, en su caso:</p>
+<pre class="sourceCode java"><code class="sourceCode java">angloParlantes.<span class="fu">each</span> { 
+  capitales.<span class="fu">remove</span>(it.<span class="fu">key</span>) 
+} </code></pre>
+<h2 id="keys-y-values"><span class="header-section-number">9.6</span> Keys y Values</h2>
+<p>Las funciones <strong>heySet()</strong> y <strong>values()</strong> (similares Java):</p>
+<pre class="sourceCode java"><code class="sourceCode java">def claves = capitales.<span class="fu">keySet</span>() 
+def valores = capitales.<span class="fu">values</span>() </code></pre>
+<p>Las funciones <strong>containsKey()</strong> y <strong>containsValue()</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">println capitales.<span class="fu">containsKey</span>(&#39;Madrid&#39;) 
+println capitales.containsValue(&#39;España&#39;) </code></pre>
+<h1 id="meta-programación"><span class="header-section-number">10</span> Meta Programación</h1>
+<h2 id="qué-es-y-para-qué-sirve"><span class="header-section-number">10.1</span> ¿Qué es y para qué sirve?</h2>
+<p>Mediante metaprogramación podemos escribir <strong>código que genera o modifica otro código o incluso a si mismo en tiempo de ejecución</strong>.</p>
+<p>Esto nos permite, entre otras cosas, manejar situaciones que no estaban previstas cuando se escribió el código, sin necesidad de recompilar.</p>
+<h2 id="reflection"><span class="header-section-number">10.2</span> Reflection</h2>
+<p>Mediante <strong>reflection</strong> podemos acceder a los miembros de una clase:</p>
+<pre class="sourceCode java"><code class="sourceCode java">println String.<span class="fu">class</span> 
+String.<span class="fu">interfaces</span>.<span class="fu">each</span> { println it } 
+String.<span class="fu">constructors</span>.<span class="fu">each</span> { println it } 
+String.<span class="fu">methods</span>.<span class="fu">each</span> { println it } 
+
+def s = <span class="kw">new</span> String(<span class="st">&quot;cadena de texto&quot;</span>) 
+s.<span class="fu">properties</span>.<span class="fu">each</span> { propiedad -&gt; 
+    println propiedad 
+} </code></pre>
+<h2 id="expandos"><span class="header-section-number">10.3</span> Expandos</h2>
+<p>Un Expando es como un <strong>objeto en blanco</strong>, al cual podemos añadir métodos y propiedades.</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def posicion = <span class="kw">new</span> <span class="fu">Expando</span>() 
+posicion.<span class="fu">latitud</span> = <span class="fl">15.47</span> 
+posicion.<span class="fu">longitud</span> = -<span class="fl">3.11</span> 
+posicion.<span class="fu">mover</span> = { deltaLatitud, deltaLongitud -&gt; 
+  posicion.<span class="fu">latitud</span> += deltaLatitud
+  posicion.<span class="fu">longitud</span> += deltaLongitud
+}</code></pre>
+<h2 id="propiedades-1"><span class="header-section-number">10.4</span> Propiedades</h2>
+<p><strong>metaClass.hasProperty()</strong> nos permite comprobar si dispone de una propiedad concreta:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def boligrafo = <span class="kw">new</span> <span class="fu">Articulo</span>(
+  descripcion:<span class="st">&quot;Boligrafo negro&quot;</span>, precio:<span class="fl">0.45</span>) 
+
+<span class="kw">if</span>(boligrafo.<span class="fu">metaClass</span>.<span class="fu">hasProperty</span>(boligrafo, <span class="st">&quot;precio&quot;</span>)) { 
+    <span class="co">// hacer algo </span>
+} </code></pre>
+<h2 id="propiedades-dinámicas"><span class="header-section-number">10.5</span> Propiedades dinámicas</h2>
+<p>Para poder añadir propiedades a un objeto (que no sea un expando) de forma dinámica se hace con las funciones <strong>setProperty() y getProperty()</strong></p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+  def propiedades = [:] 
+   
+  <span class="dt">void</span> <span class="fu">setProperty</span>(String nombre, Object valor) { 
+    propiedades[nombre] = valor 
+  } 
+   
+  Object <span class="fu">getProperty</span>(String nombre) { 
+    propiedades[nombre] 
+  } 
+} 
+
+def articulo = <span class="kw">new</span> <span class="fu">Articulo</span>() 
+articulo.<span class="fu">codigoEAN</span> = <span class="dv">84123445593</span> 
+println articulo.<span class="fu">codigoEAN</span> </code></pre>
+<h2 id="punteros"><span class="header-section-number">10.6</span> Punteros</h2>
+<p>Punteros a <strong>propiedades</strong> con el <strong>operador @</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">println boligrafo.<span class="fu">@precio</span> </code></pre>
+<p>Punteros a <strong>métodos</strong> con el <strong>operador &amp;</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def lista = [] 
+def insertar = lista.&amp;add 
+insertar <span class="st">&quot;valor1&quot;</span> 
+insertar <span class="st">&quot;valor2&quot;</span> </code></pre>
+<h2 id="categorías"><span class="header-section-number">10.7</span> Categorías</h2>
+<p>Groovy nos permite <strong>usar métodos de una categoría</strong> dentro de una clase.</p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+} 
+
+<span class="kw">class</span> ArticuloExtras {
+  <span class="co">// importante el static y la clase Articulo como parámetro</span>
+  <span class="dt">static</span> <span class="dt">double</span> <span class="fu">conImpuestos</span>(Articulo articulo) { 
+    articulo.<span class="fu">precio</span> * <span class="fl">1.18</span> 
+  } 
+} 
+
+Articulo articulo = <span class="kw">new</span> <span class="fu">Articulo</span>(descripcion:&#39;Grapadora&#39;, precio:<span class="fl">4.50</span>) 
+<span class="fu">use</span>(ArticuloExtras) { 
+    articulo.<span class="fu">conImpuestos</span>() 
+} </code></pre>
+<h2 id="métodos"><span class="header-section-number">10.8</span> Métodos</h2>
+<p><strong>metaClass.respondsTo()</strong> nos permite comprobar la existencia de un método:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">if</span>(boligrafo.<span class="fu">metaClass</span>.<span class="fu">respondsTo</span>(boligrafo, <span class="st">&quot;getDescripcion&quot;</span>)) { 
+    <span class="co">// hacer algo </span>
+} </code></pre>
+<h2 id="ejecutando-con-gstrings"><span class="header-section-number">10.9</span> Ejecutando con GStrings</h2>
+<p>Podemos <strong>ejecutar métodos mediante GStrings</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def nombreDelMetodo = <span class="st">&quot;getPrecio&quot;</span> 
+boligrafo.<span class="st">&quot;${nombreDelMetodo}&quot;</span>() </code></pre>
+<p>Esto nos permite ejecutar en tiempo de ejecución métodos no creados en tiempo de compilación.</p>
+<h2 id="interceptando-métodos"><span class="header-section-number">10.10</span> Interceptando métodos</h2>
+<p>Para poder añadir métodos a un objeto (que no sea un expando) de forma dinámica se hace con la función <strong>invokeMethod()</strong></p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+   
+  Object <span class="fu">invokeMethod</span>(String nombre, Object args) { 
+    println <span class="st">&quot;Invocado método ${nombre}() con los argumentos ${args}&quot;</span> 
+  } 
+} 
+
+def articulo = <span class="kw">new</span> <span class="fu">Articulo</span>() 
+articulo.<span class="fu">operacionInexistente</span>(&#39;abc&#39;, <span class="dv">123</span>, <span class="kw">true</span>) </code></pre>
+<p>El caso anterior sólo intercepta los métodos no definidos.</p>
+<p>Si lo que queremos es interceptar todos los métodos, la clase tiene que implementar la Interfaz <strong>GroovyInterceptable</strong></p>
+<p>Esto nos permite Programación Orientada a Aspectos.</p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="kw">class</span> Articulo <span class="kw">implements</span> GroovyInterceptable { 
+  String descripcion 
+  <span class="dt">double</span> precio 
+   
+  Object <span class="fu">invokeMethod</span>(String nombre, Object args) { 
+    def metaMetodo = Articulo.<span class="fu">metaClass</span>.<span class="fu">getMetaMethod</span>(nombre, args) 
+    metaMetodo.<span class="fu">invoke</span>(<span class="kw">this</span>, args) 
+  } 
+} </code></pre>
+<h2 id="métodos-dinámicos"><span class="header-section-number">10.11</span> Métodos dinámicos</h2>
+<p>Groovy nos permite <strong>añadir métodos</strong> a una clase ya creada:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">Integer.<span class="fu">metaClass</span>.<span class="fu">numeroAleatorio</span> = { 
+    def random = <span class="kw">new</span> Random() 
+    random.<span class="fu">nextInt</span>(delegate.<span class="fu">intValue</span>()) 
+} 
+
+<span class="fl">50.</span><span class="fu">numeroAleatorio</span>()</code></pre>
+<p>Tened en cuenta que <strong>delegate</strong> hace referencia al objeto 'delegado', el objeto que estará disponible en tiempo de ejecución.</p>
+<h1 id="ficheros"><span class="header-section-number">11</span> Ficheros</h1>
+<h2 id="listados"><span class="header-section-number">11.1</span> Listados</h2>
+<p>Podemos <strong>iterar</strong> de forma sencilla sobre los ficheros y directorios:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def directorio = <span class="kw">new</span> File(<span class="st">&quot;.&quot;</span>)
+
+<span class="co">// imprimimos todo</span>
+directorio.<span class="fu">eachFile</span> { println it }
+
+<span class="co">// imprimimos los subdirectorios</span>
+directorio.<span class="fu">eachDir</span> { println it }
+
+<span class="co">// imprimimos los subdirectorios recursivamente</span>
+directorio.<span class="fu">eachDirRecurse</span> { println it }
+
+<span class="co">// imprimimos los subdirectorios que contengan b</span>
+directorio.<span class="fu">eachDirMatch</span> ~/.*b.*/, {println it}</code></pre>
+<h2 id="escritura"><span class="header-section-number">11.2</span> Escritura</h2>
+<p><strong>Sobreescribe</strong> el fichero:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+file.<span class="fu">write</span> <span class="st">&quot;&quot;&quot;</span>
+Hola
+Todo bien?
+Adios
+<span class="st">&quot;&quot;&quot;</span></code></pre>
+<p><strong>Añade</strong> al final del fichero:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+file &lt;&lt; <span class="st">&quot;P.D. Un beso&quot;</span>
+file.<span class="fu">apend</span> <span class="st">&quot;Otro beso&quot;</span></code></pre>
+<h2 id="lectura"><span class="header-section-number">11.3</span> Lectura</h2>
+<p>Lee <strong>todo el texto</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+println file.<span class="fu">text</span></code></pre>
+<p>Lee el texto <strong>línea a línea</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(&#39;datos.<span class="fu">dat</span>&#39;)
+file.<span class="fu">eachLine</span> { println <span class="st">&quot;-&gt;$it&quot;</span> }</code></pre>
+<h2 id="tamaños"><span class="header-section-number">11.4</span> Tamaños</h2>
+<p>Para sacar el tamaño <strong>de los ficheros y de las particiones</strong> es parecido a Java:</p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// tamaño en bytes</span>
+println file.<span class="fu">size</span>()
+
+<span class="co">// bytes libres en la partición actual</span>
+println file.<span class="fu">getFreeSpace</span>()
+
+<span class="co">// bytes disponibles en la máquina virtual</span>
+println file.<span class="fu">getUsableSpace</span>()
+
+<span class="co">// tamaño total en bytes de la parción actual</span>
+println file.<span class="fu">getTotalSpace</span>()</code></pre>
+<h2 id="propiedades-2"><span class="header-section-number">11.5</span> Propiedades</h2>
+<p>Al igual que en Java podemos acceder a las <strong>propiedades de los archivos</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">file.<span class="fu">exists</span>()
+file.<span class="fu">isFile</span>()
+file.<span class="fu">canRead</span>()
+file.<span class="fu">canWrite</span>()
+file.<span class="fu">isDirectory</span>()
+file.<span class="fu">isHidden</span>()</code></pre>
+<h2 id="creación"><span class="header-section-number">11.6</span> Creación</h2>
+<p>Crear un <strong>fichero</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def file = <span class="kw">new</span> File(<span class="st">&quot;kkk.txt&quot;</span>)
+file.<span class="fu">createNewFile</span>()</code></pre>
+<p>Crear un <strong>fichero temporal</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">File.<span class="fu">createTempFile</span>(<span class="st">&quot;kkk&quot;</span>, <span class="st">&quot;txt&quot;</span>)</code></pre>
+<p>Crear <strong>directorios</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def dir = <span class="kw">new</span> File(<span class="st">&quot;kk1/kk2&quot;</span>)
+dir.<span class="fu">mkdirs</span>()</code></pre>
+<h2 id="borrado"><span class="header-section-number">11.7</span> Borrado</h2>
+<p>Para borrar <strong>tanto ficheros como directorios</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">file.<span class="fu">delete</span>()</code></pre>
+<h1 id="xml"><span class="header-section-number">12</span> XML</h1>
+<h2 id="builders"><span class="header-section-number">12.1</span> Builders</h2>
+<p>Groovy utiliza las listas y los mapas para <strong>parsear datos</strong> de forma sencilla.</p>
+<p>Aunque podemos crear los nuestros, Groovy viene ya con varios Builders:</p>
+<ul>
+<li><p><strong>NodeBuilder</strong> - navegación mediante XPath</p></li>
+<li><p><strong>DOMBuilder</strong> - navegación mediante DOM</p></li>
+<li><p><strong>SAXBuilder</strong> - navegación mediante SAX</p></li>
+<li><p><strong>MarkupBuilder</strong> - documentos de XML / HTML</p></li>
+<li><p><strong>AntBuilder</strong> - tareas Ant</p></li>
+<li><p><strong>SwingBuilder</strong> - interfaces Swing</p></li>
+</ul>
+<h2 id="escritura-xml"><span class="header-section-number">12.2</span> Escritura XML</h2>
+<p>Utilizamos <strong>MarkupBuilder</strong>:</p>
+<pre class="sourceCode java"><code class="sourceCode java">def writer = <span class="kw">new</span> StringWriter()
+def builder = <span class="kw">new</span> <span class="fu">MarkupBuilder</span>(writer)
+builder.<span class="fu">setDoubleQuotes</span> <span class="kw">true</span>
+builder.<span class="fu">personas</span>{
+  <span class="fu">persona</span>(id:<span class="st">&quot;1&quot;</span>){
+    nombre <span class="st">&quot;Adolfo&quot;</span>
+    edad <span class="dv">35</span>
+  }
+  <span class="fu">persona</span>(id:<span class="st">&quot;2&quot;</span>){
+    nombre <span class="st">&quot;Alba&quot;</span>
+    edad <span class="dv">25</span>
+  }
+}
+println writer.<span class="fu">toString</span>()</code></pre>
+<p>El fichero generado:</p>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;personas&gt;</span>
+  <span class="kw">&lt;persona</span><span class="ot"> id=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;nombre&gt;</span>Adolfo<span class="kw">&lt;/nombre&gt;</span>
+    <span class="kw">&lt;edad&gt;</span>35<span class="kw">&lt;/edad&gt;</span>
+  <span class="kw">&lt;/persona&gt;</span>
+  <span class="kw">&lt;persona</span><span class="ot"> id=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;nombre&gt;</span>Alba<span class="kw">&lt;/nombre&gt;</span>
+    <span class="kw">&lt;edad&gt;</span>25<span class="kw">&lt;/edad&gt;</span>
+  <span class="kw">&lt;/persona&gt;</span>
+<span class="kw">&lt;/personas&gt;</span></code></pre>
+<h2 id="lectura-xml"><span class="header-section-number">12.3</span> Lectura XML</h2>
+<p><strong>XmlParser</strong> lee todo el documento y genera en memoria una estructura parecida al DOM.</p>
+<p>Es más cómodo y rápido una vez leído, pero necesita más memoria RAM.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def personas=<span class="kw">new</span> <span class="fu">XmlParser</span>().<span class="fu">parse</span>(<span class="st">&quot;personas.xml&quot;</span>)
+personas.<span class="fu">each</span> { println it }</code></pre>
+<p><strong>XmlSlurper</strong> hace lectura directa y es más rápido en la primera lectura.</p>
+<p>Viene bien para hacer búsquedas en ficheros grandes.</p>
+<pre class="sourceCode java"><code class="sourceCode java">def personas=<span class="kw">new</span> <span class="fu">XmlSlurper</span>().<span class="fu">parse</span>(<span class="st">&quot;personas.xml&quot;</span>)
+personas.<span class="fu">each</span> { println it }</code></pre>
+<h1 id="plantillas"><span class="header-section-number">13</span> Plantillas</h1>
+<h2 id="la-plantilla"><span class="header-section-number">13.1</span> La plantilla</h2>
+<p>En Groovy podemos usar <strong>plantillas</strong> de este estilo:</p>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Informe del ${String.format(&quot;%tA&quot;,fecha)}<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    Estimado ${usuario?.nombre} ${usuario?.apellidos}
+    bla,bla,bla,...
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+<h2 id="parseo"><span class="header-section-number">13.2</span> Parseo</h2>
+<p>Y podemos <strong>parsearlas</strong> de forma sencilla:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def plantilla=<span class="kw">this</span>.<span class="fu">class</span>.<span class="fu">getResource</span>(<span class="st">&quot;plantillaEmail.gtpl&quot;</span>)
+def datos=[
+  <span class="st">&quot;usuario&quot;</span>: <span class="kw">new</span> <span class="fu">Usuario</span>(nombre:<span class="st">&quot;pepe&quot;</span>, apellidos:<span class="st">&quot;perez&quot;</span>),
+  <span class="st">&quot;fecha&quot;</span>:<span class="kw">new</span> Date()]
+def procesador=<span class="kw">new</span> <span class="fu">SimpleTemplateEngine</span>()
+def correo=procesador.<span class="fu">createTemplate</span>(plantilla).<span class="fu">make</span>(datos);
+println correo.<span class="fu">toString</span>()</code></pre>
+<h1 id="expresiones-regulares"><span class="header-section-number">14</span> Expresiones regulares</h1>
+<h2 id="uso"><span class="header-section-number">14.1</span> Uso</h2>
+<p>Las expresiones regulares se encierran con la barra <strong>( / )</strong>.</p>
+<p>Con la virgulilla <strong>( ~ )</strong> se hacen las comparaciones.</p>
+<pre><code>a?-&gt; 0 o 1 &#39;a&#39;
+a*-&gt; 0 o muchas &#39;a&#39;
+a+-&gt; 1 0 muchas &#39;a&#39;
+a|b   -&gt; &#39;a&#39; o &#39;b&#39;
+. -&gt; cualquier carácter
+[1-9] -&gt; cualquier número
+[^13] -&gt; cualquier número excepto el &#39;1&#39; y el &#39;3&#39;
+^a-&gt; empieza por &#39;a&#39;
+a$-&gt; termina por &#39;a&#39;</code></pre>
+<h2 id="ejemplos-i"><span class="header-section-number">14.2</span> Ejemplos I</h2>
+<p>Ejemplos <strong>sencillos</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// igual a abc</span>
+assert <span class="st">&quot;abc&quot;</span> ==~ /abc/
+
+<span class="co">// empieza por ab</span>
+assert <span class="st">&quot;abcdef&quot;</span> ==~ /^ab.*/
+
+<span class="co">// termina por ef</span>
+assert <span class="st">&quot;abcdef&quot;</span> ==~ /.*ef$/</code></pre>
+<h2 id="ejemplos-ii"><span class="header-section-number">14.3</span> Ejemplos II</h2>
+<p>Ejemplos algo <strong>más elaborados</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// empieza por a termina por d y tiene en medio una b o una c</span>
+assert <span class="st">&quot;abd&quot;</span> ==~ /^a[b|c]d$/
+
+<span class="co">// empieza por a termina por d y tiene en medio cualquier carácter</span>
+assert <span class="st">&quot;acd&quot;</span> ==~ /^a.?d$/
+
+<span class="co">// una o varias a y luego b</span>
+assert <span class="st">&quot;aab&quot;</span> ==~ /a+b/</code></pre>
+<h1 id="fechas"><span class="header-section-number">15</span> Fechas</h1>
+<h2 id="hoy"><span class="header-section-number">15.1</span> Hoy</h2>
+<p>Cuando creamos un objeto se crea con <strong>la fecha y la hora actual</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def today = <span class="kw">new</span> Date() </code></pre>
+<h2 id="sumarrestar"><span class="header-section-number">15.2</span> Sumar/Restar</h2>
+<p>Podemos <strong>añadir y sustraer</strong> fechas de forma sencilla:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def tomorrow  = today + <span class="dv">1</span>,
+    dayAfter  = today + <span class="dv">2</span>,
+    yesterday = today - <span class="dv">1</span>,
+    dayBefore = today - <span class="dv">2</span>
+println <span class="st">&quot;dayBefore = $dayBefore&quot;</span>
+println <span class="st">&quot;yesterday = $yesterday&quot;</span>
+println <span class="st">&quot;today     = $today&quot;</span>
+println <span class="st">&quot;tomorrow  = $tomorrow&quot;</span>
+println <span class="st">&quot;dayAfter  = $dayAfter&quot;</span></code></pre>
+<h2 id="comparaciones"><span class="header-section-number">15.3</span> Comparaciones</h2>
+<p>Podemos hacer <strong>comparaciones</strong>:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">println <span class="st">&quot;tomorrow.after(today) = &quot;</span> + tomorrow.<span class="fu">after</span>(today)
+println <span class="st">&quot;yesterday.before(today) = &quot;</span> + yesterday.<span class="fu">before</span>(today)
+println <span class="st">&quot;tomorrow.compareTo(today) = &quot;</span> + tomorrow.<span class="fu">compareTo</span>(today)
+println <span class="st">&quot;tomorrow.compareTo(dayAfter) = &quot;</span> + tomorrow.<span class="fu">compareTo</span>(dayAfter)
+println <span class="st">&quot;dayBefore.compareTo(dayBefore) = &quot;</span> + dayBefore.<span class="fu">compareTo</span>(dayBefore)</code></pre>
+<h2 id="formateo"><span class="header-section-number">15.4</span> Formateo</h2>
+<p>Podemos <strong>formatear fechas</strong> de forma sencilla:</p>
+<pre class="sourceCode Java"><code class="sourceCode java"><span class="co">// YYYY/mm/dd</span>
+println String<span class="fu">.format</span>(&#39;Hoy es %tY/%&lt;tm/%&lt;td&#39;, today)
+
+<span class="co">// HH:MM:SS.LLL</span>
+println String<span class="fu">.format</span>(&#39;La hora es %tH:%&lt;tM:%&lt;tS.%&lt;tL&#39;, today)</code></pre>
+<h2 id="parseo-1"><span class="header-section-number">15.5</span> Parseo</h2>
+<p>Tambien podemos <strong>parsear cadenas</strong> en fechas de forma sencilla:</p>
+<pre class="sourceCode Java"><code class="sourceCode java">def date = Date.<span class="fu">parse</span>(<span class="st">&quot;yyyy/MM/dd HH:mm:ss&quot;</span>, <span class="st">&quot;2013/05/01 11:12:13&quot;</span>)</code></pre>
+</body>
+</html>

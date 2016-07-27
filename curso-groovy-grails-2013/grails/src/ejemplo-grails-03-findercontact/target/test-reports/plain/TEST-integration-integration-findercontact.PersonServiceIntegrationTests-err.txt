@@ -1,0 +1,81 @@
+--Output from testFindContacts--
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)

@@ -1,0 +1,150 @@
+Testsuite: findercontact.PersonServiceIntegrationTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1,036 sec
+------------- Standard Output ---------------
+--Output from testFindContacts--
+Hibernate: select this_.person_id as person1_57_0_, this_.version as version57_0_, this_.age as age57_0_, this_.height as height57_0_, this_.name as name57_0_, this_.sex as sex57_0_ from Persons this_
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: select this_.person_id as person1_57_0_, this_.version as version57_0_, this_.age as age57_0_, this_.height as height57_0_, this_.name as name57_0_, this_.sex as sex57_0_ from Persons this_ where this_.sex=?
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+2013-05-14 11:32:48,075 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 1---------------------------
+
+2013-05-14 11:32:48,075 [Thread-42] INFO  findercontact.PersonService  - 4
+
+2013-05-14 11:32:48,076 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M]
+
+2013-05-14 11:32:48,076 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M]
+
+2013-05-14 11:32:48,077 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:48,077 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+2013-05-14 11:32:48,077 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 2---------------------------
+
+2013-05-14 11:32:48,077 [Thread-42] INFO  findercontact.PersonService  - class fidercontactrules.Rules
+
+2013-05-14 11:32:48,078 [Thread-42] INFO  findercontact.PersonService  - deltaAge=5
+
+2013-05-14 11:32:48,078 [Thread-42] INFO  findercontact.PersonService  - deltaHeight=0.1
+
+2013-05-14 11:32:48,078 [Thread-42] INFO  findercontact.PersonService  - p=Person [name=Teresa, age=35, height=1.6, sex=W]
+
+2013-05-14 11:32:48,078 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 3---------------------------
+
+2013-05-14 11:32:48,079 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M] -> false
+
+2013-05-14 11:32:48,079 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M] -> false
+
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+2013-05-14 11:32:48,108 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M] -> true
+
+2013-05-14 11:32:48,109 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M] -> true
+
+2013-05-14 11:32:48,109 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 4---------------------------
+
+2013-05-14 11:32:48,110 [Thread-42] INFO  findercontact.PersonService  - 2
+
+2013-05-14 11:32:48,111 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:48,111 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+Reloading: JVMPlugin: warning: unable to clear BEANINFO_CACHE, cant find field
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testFindContacts--
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+Unexpected problem clearing ThreadGroupContext beaninfo: 
+java.lang.ClassCastException: java.beans.WeakIdentityMap cannot be cast to java.util.Map
+	at org.springsource.loaded.agent.JVMPlugin.reloadEvent(JVMPlugin.java:77)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1594)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:805)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+------------- ---------------- ---------------
+
+Testcase: testFindContacts took 1,029 sec

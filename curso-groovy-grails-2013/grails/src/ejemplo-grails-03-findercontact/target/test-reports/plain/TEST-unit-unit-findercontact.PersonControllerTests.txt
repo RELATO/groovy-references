@@ -1,0 +1,58 @@
+Testsuite: findercontact.PersonControllerTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1,445 sec
+------------- Standard Output ---------------
+--Output from testFind--
+2013-05-14 11:32:31,455 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 1---------------------------
+
+2013-05-14 11:32:31,456 [Thread-42] INFO  findercontact.PersonService  - 4
+
+2013-05-14 11:32:31,456 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M]
+
+2013-05-14 11:32:31,457 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M]
+
+2013-05-14 11:32:31,457 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:31,457 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+2013-05-14 11:32:31,457 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 2---------------------------
+
+2013-05-14 11:32:31,458 [Thread-42] INFO  findercontact.PersonService  - class fidercontactrules.Rules
+
+2013-05-14 11:32:31,458 [Thread-42] INFO  findercontact.PersonService  - deltaAge=5
+
+2013-05-14 11:32:31,458 [Thread-42] INFO  findercontact.PersonService  - deltaHeight=0.1
+
+2013-05-14 11:32:31,458 [Thread-42] INFO  findercontact.PersonService  - p=Person [name=Teresa, age=35, height=1.6, sex=W]
+
+2013-05-14 11:32:31,458 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 3---------------------------
+
+2013-05-14 11:32:31,459 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M] -> false
+
+2013-05-14 11:32:31,459 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M] -> false
+
+2013-05-14 11:32:31,464 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M] -> true
+
+2013-05-14 11:32:31,465 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M] -> true
+
+2013-05-14 11:32:31,465 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 4---------------------------
+
+2013-05-14 11:32:31,466 [Thread-42] INFO  findercontact.PersonService  - 2
+
+2013-05-14 11:32:31,467 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:31,467 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+2013-05-14 11:32:31,467 [Thread-42] INFO  findercontact.PersonController  - -----------------CONTROLLER-----------------------------------
+
+2013-05-14 11:32:31,467 [Thread-42] INFO  findercontact.PersonController  - 2
+
+2013-05-14 11:32:31,468 [Thread-42] INFO  findercontact.PersonController  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:31,468 [Thread-42] INFO  findercontact.PersonController  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testFind--
+------------- ---------------- ---------------
+
+Testcase: testFind took 1,188 sec

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="asus-u32u" name="findercontact.PersonIntegrationTests" tests="1" time="0.35" timestamp="2013-05-14T09:32:48">
+  <properties />
+  <testcase classname="findercontact.PersonIntegrationTests" name="testSave" time="0.344" />
+  <system-out><![CDATA[--Output from testSave--
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: select count(*) as y0_ from Persons this_
+]]></system-out>
+  <system-err><![CDATA[--Output from testSave--
+]]></system-err>
+</testsuite>

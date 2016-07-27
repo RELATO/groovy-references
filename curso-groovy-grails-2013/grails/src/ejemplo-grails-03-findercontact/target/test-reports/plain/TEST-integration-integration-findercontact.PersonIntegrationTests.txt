@@ -1,0 +1,15 @@
+Testsuite: findercontact.PersonIntegrationTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,35 sec
+------------- Standard Output ---------------
+--Output from testSave--
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: select count(*) as y0_ from Persons this_
+Hibernate: select count(*) as y0_ from Persons this_
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testSave--
+------------- ---------------- ---------------
+
+Testcase: testSave took 0,344 sec

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="asus-u32u" name="findercontact.PersonTests" tests="1" time="0.272" timestamp="2013-05-14T09:32:31">
+  <properties />
+  <testcase classname="findercontact.PersonTests" name="testValidate" time="0.269" />
+  <system-out><![CDATA[--Output from testValidate--
+]]></system-out>
+  <system-err><![CDATA[--Output from testValidate--
+]]></system-err>
+</testsuite>

@@ -1,0 +1,10 @@
+Testsuite: findercontact.PersonTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,272 sec
+------------- Standard Output ---------------
+--Output from testValidate--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testValidate--
+------------- ---------------- ---------------
+
+Testcase: testValidate took 0,269 sec

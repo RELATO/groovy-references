@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" > <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" > <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" > <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="generator" content="pandoc" />
+  <meta name="description" content="Grails" />
+  <meta name="author" content="Adolfo Sanz De Diego" />
+  <title>Grails</title>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+
+  <!-- deck core css -->
+  <link rel="stylesheet" href="../lib/deck.js-master/core/deck.core.css">
+
+  <!-- deck extensions css -->
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/menu/deck.menu.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/extensions/status/deck.status.css">
+
+  <!-- deck slide theme css -->
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/web-2.0.css">
+  <!--
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/neon.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/swiss.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/style/web-2.0.css">
+  -->
+
+  <!-- deck slide transition css -->
+  <link rel="stylesheet" href="../lib/deck.js-transition-cube-master/cube.css">
+  <!--
+  <link rel="stylesheet" href="../lib/deck.js-transition-cube-master/cube.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/transition/fade.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/transition/horizontal-slide.css">
+  <link rel="stylesheet" href="../lib/deck.js-master/themes/transition/vertical-slide.css">
+  -->
+
+  <!-- custom css just for this page -->
+  <style>
+    figcaption {
+      display: none;
+      visibility:hidden;
+    }
+
+    #titlepage, #documentauthor, #documentdate {
+      text-align: center;
+    }
+
+    #titlepage {
+      font-size: 5.25em;
+      padding-top: 15%;
+    }
+
+    #documentauthor {
+      font-size: 2.25em;
+    }
+
+    #documentdate {
+      font-size: 1.25em;
+    }
+  </style>
+
+  <!-- modernizr deck js  -->
+  <script src="../lib/deck.js-master/modernizr.custom.js"></script>
+
+</head>
+<body class="deck-container">
+<section class="slide">
+  <h2 id="titlepage">Grails</h2>
+  <h3 id="documentauthor">Adolfo Sanz De Diego</h3>
+  <h4 id="documentdate">Abril 2013</h4>
+</section>
+
+<section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="autor" class="slide level2">
+<h2><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>Twitter: <span class="citation" data-cites="asanzdiego">[@asanzdiego]</span>(http://twitter.com/asanzdiego)</li>
+<li>Linkedin: <a href="http://www.linkedin.com/in/asanzdiego">http://www.linkedin.com/in/asanzdiego</a></li>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es">http://asanzdiego.blogspot.com.es</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Este obra está bajo una licencia:</strong>
+<ul>
+<li><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></li>
+</ul></li>
+<li><strong>El código fuente de los programas están bajo una licencia:</strong>
+<ul>
+<li><a href="http://www.viti.es/gnu/licenses/gpl.html">GPL 3.0</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="introducción" class="titleslide slide level1"><h1><span class="header-section-number">2</span> Introducción</h1></section><section id="grails" class="slide level2">
+<h2><span class="header-section-number">2.1</span> ¿Grails?</h2>
+<ul>
+<li>Grails no sólo es un framework de desarrollo web, sino que es una <strong>plataforma completa de desarrollo</strong>:
+<ul>
+<li>Contenedor/servidor web</li>
+<li>Gestor de base de datos</li>
+<li>Scaffolding</li>
+<li>Empaquetado de la aplicación (war)</li>
+<li>Realización de tests (unitarios, de integración, funcionales)</li>
+<li>Extensible con plugins</li>
+</ul></li>
+</ul>
+</section><section id="paradigmas" class="slide level2">
+<h2><span class="header-section-number">2.2</span> Paradigmas</h2>
+<ul>
+<li>Se basa en los paradigmas:
+<ul>
+<li><strong>CoC</strong> (Convención sobre Configuración)</li>
+<li><strong>DRY</strong> (Don’t Repeat Yourself)</li>
+<li><strong>MVC</strong> (Modelo Vista Controlador)</li>
+</ul></li>
+</ul>
+</section><section id="gorm" class="slide level2">
+<h2><span class="header-section-number">2.3</span> GORM</h2>
+<ul>
+<li>GORM (Grails Object Relational Mapping) sirve para el <strong>mapeo objeto-relacional</strong>:
+<ul>
+<li>Uno a uno</li>
+<li>Uno a muchos</li>
+<li>Muchos a muchos</li>
+</ul></li>
+</ul>
+</section><section id="plugins" class="slide level2">
+<h2><span class="header-section-number">2.4</span> Plugins</h2>
+<ul>
+<li>Existen multitud de <a href="http://grails.org/plugins/">plugins</a> que <strong>extienden la plataforma</strong>:
+<ul>
+<li>Seguridad</li>
+<li>AJAX</li>
+<li>Búsqueda</li>
+<li>Informes</li>
+<li>etc.</li>
+</ul></li>
+<li>Se pueden crear plugins <strong>internos para funcionalidades comunes</strong> entre varias aplicaciones.</li>
+</ul>
+</section><section id="nih-not-invented-here" class="slide level2">
+<h2><span class="header-section-number">2.5</span> NIH (Not Invented Here)</h2>
+<figure>
+<img src="../img/grails-only-nih-transparente.png" alt="Grails NIH" /><figcaption>Grails NIH</figcaption>
+</figure>
+</section><section id="arquitectura" class="slide level2">
+<h2><span class="header-section-number">2.6</span> Arquitectura</h2>
+<figure>
+<img src="../img/grails-only-architecture-transparente.png" alt="Grails Arquitectura" /><figcaption>Grails Arquitectura</figcaption>
+</figure>
+</section>
+<section id="instalación-y-configuración" class="titleslide slide level1"><h1><span class="header-section-number">3</span> Instalación y configuración</h1></section><section id="jdk" class="slide level2">
+<h2><span class="header-section-number">3.1</span> JDK</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">JAVA_HOME=</span><span class="st">&quot;~/Java/jdk&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$JAVA_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+</section><section id="groovy-sdk" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Groovy-SDK</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">GROOVY_HOME=</span><span class="st">&quot;~/Java/groovy&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$GROOVY_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+</section><section id="grails-1" class="slide level2">
+<h2><span class="header-section-number">3.3</span> Grails</h2>
+<ol type="1">
+<li>Descargar.</li>
+<li>Instalar/Descomprimir.</li>
+<li>Variable de entorno y añadir al path.</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">GRAILS_HOME=</span><span class="st">&quot;~/Java/groovy&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=$PATH</span><span class="st">&quot;:&quot;</span><span class="ot">$GRAILS_HOME</span><span class="st">&quot;/bin&quot;</span></code></pre>
+</section><section id="probando" class="slide level2">
+<h2><span class="header-section-number">3.4</span> Probando</h2>
+<pre><code>$ grails --version
+Grails version: 2.2.1</code></pre>
+</section>
+<section id="getting-started" class="titleslide slide level1"><h1><span class="header-section-number">4</span> Getting Started</h1></section><section id="create-grails-project" class="slide level2">
+<h2><span class="header-section-number">4.1</span> Create Grails Project</h2>
+<ul>
+<li>Por línea de comandos:</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> create-app my-project</code></pre>
+<ul>
+<li>En el GGTS:</li>
+</ul>
+<pre><code>File &gt; New &gt; Grails Project</code></pre>
+<ul>
+<li>Línea de comandos en el GGTS:</li>
+</ul>
+<pre><code>Control + Alt + Shift + G</code></pre>
+</section><section id="directorios-i" class="slide level2">
+<h2><span class="header-section-number">4.2</span> Directorios (I)</h2>
+<pre><code>%PROJECT_HOME%
++ grails-app    -&gt; ficheros de la aplicación grails
++ lib           -&gt; bibliotecas
++ scripts       -&gt; scripts
++ src
+  + groovy      -&gt; otros ficheros groovy opcionales
+  + java        -&gt; otros ficheros java opcionales
++ test          -&gt; clases de test
++ web-app
+  + css         -&gt; archivos CSS
+  + images      -&gt; archivos de imágenes
+  + js          -&gt; archivos JavaScript
+  + WEB-INF     -&gt; otros ficheros de la aplicación web</code></pre>
+</section><section id="directorios-ii" class="slide level2">
+<h2><span class="header-section-number">4.3</span> Directorios (II)</h2>
+<pre><code>%PROJECT_HOME%
++ grails-app
+  + conf        -&gt; archivos de configuración
+    + hibernate -&gt; archivos de configuración de hibernate
+    + spring    -&gt; archivos de configuración de spring
+  + controllers -&gt; controladores
+  + domain      -&gt; clases de dominio
+  + i18n        -&gt; ficheros de internacionalización
+  + services    -&gt; servicios
+  + taglib      -&gt; bibliotecas de etiquetas
+  + util        -&gt; clases de utilidades
+  + views       -&gt; vistas
+    + layouts   -&gt; layouts</code></pre>
+</section><section id="create-a-domain-class" class="slide level2">
+<h2><span class="header-section-number">4.4</span> Create a Domain Class</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> create-domain-class org.example.Libro</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package</span> org.example
+
+<span class="kw">class</span> Libro {
+  String titulo
+  String author
+
+  <span class="dt">static</span> constraints = {
+    <span class="fu">titulo</span>(blank: <span class="kw">false</span>)
+    <span class="fu">author</span>(blank: <span class="kw">false</span>)
+  }
+}</code></pre>
+</section><section id="create-a-controller" class="slide level2">
+<h2><span class="header-section-number">4.5</span> Create a Controller</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> create-controller org.example.Libro</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package</span> org.example
+
+<span class="kw">class</span> LibroController {
+    def scaffold = Libro
+}</code></pre>
+</section><section id="creating-test-data" class="slide level2">
+<h2><span class="header-section-number">4.6</span> Creating Test Data</h2>
+<ul>
+<li>grails-app/conf/BootStrap.groovy</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import</span> org.example.Libro
+<span class="kw">class</span> BootStrap {
+  def init = { servletContext -&gt;
+    <span class="co">// Check whether the test data already exists.</span>
+    <span class="kw">if</span> (!Libro.<span class="fu">count</span>()) {
+      <span class="kw">new</span> <span class="fu">Libro</span>(
+        author: <span class="st">&quot;S. King&quot;</span>, 
+        titulo: <span class="st">&quot;The Shining&quot;</span>).<span class="fu">save</span>(failOnError: <span class="kw">true</span>)
+      <span class="kw">new</span> <span class="fu">Libro</span>(
+        author: <span class="st">&quot;J. Patterson&quot;</span>,
+        titulo: <span class="st">&quot;Along Came a Spider&quot;</span>).<span class="fu">save</span>(failOnError: <span class="kw">true</span>)
+    }
+  }
+
+  def destroy = {
+  }
+}</code></pre>
+</section><section id="start-grails" class="slide level2">
+<h2><span class="header-section-number">4.7</span> Start Grails</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> run-app</code></pre>
+</section>
+<section id="scaffolding" class="titleslide slide level1"><h1><span class="header-section-number">5</span> Scaffolding</h1></section><section id="definición" class="slide level2">
+<h2><span class="header-section-number">5.1</span> Definición</h2>
+<ul>
+<li><strong>Generación automática de código</strong> para las cuatro operaciones básicas de cualquier aplicación (CRUD):
+<ul>
+<li><strong>C</strong>reate</li>
+<li><strong>R</strong>ead</li>
+<li><strong>U</strong>pdate</li>
+<li><strong>D</strong>elete</li>
+</ul></li>
+</ul>
+</section><section id="dinámico" class="slide level2">
+<h2><span class="header-section-number">5.2</span> Dinámico</h2>
+<ul>
+<li>En el controlador:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def scaffold = <span class="kw">true</span> <span class="co">// si se sigue la convención de nombrado</span></code></pre>
+<pre class="sourceCode java"><code class="sourceCode java">def scaffold = DomainClass <span class="co">// si no se sigue la convención de nombrado</span></code></pre>
+</section><section id="estático" class="slide level2">
+<h2><span class="header-section-number">5.3</span> Estático</h2>
+<ul>
+<li>Genera el controlador:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">grails generate-controller org.<span class="fu">example</span>.<span class="fu">Libro</span></code></pre>
+<ul>
+<li>Genera la vista:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">grails generate-views org.<span class="fu">example</span>.<span class="fu">Libro</span></code></pre>
+<ul>
+<li>Genera el controlador y la vista:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">grails generate-all org.<span class="fu">example</span>.<span class="fu">Libro</span></code></pre>
+</section><section id="templates" class="slide level2">
+<h2><span class="header-section-number">5.4</span> Templates</h2>
+<ul>
+<li>Podemos extraer las templates de generación de código con el siguiente comando:</li>
+</ul>
+<pre><code>grails install-templates</code></pre>
+<ul>
+<li>Se pueden ver y modificar para su uso en la carpeta:</li>
+</ul>
+<pre><code>%PROJECT_HOME%
++ src
+  + templates
+    + artifacts
+    + scaffolding 
+    + testing
+    + war</code></pre>
+</section>
+<section id="validación" class="titleslide slide level1"><h1><span class="header-section-number">6</span> Validación</h1></section><section id="clases-de-dominio" class="slide level2">
+<h2><span class="header-section-number">6.1</span> Clases de dominio</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> User {
+
+  String email
+  String password
+  Integer age
+  String twitter
+
+  <span class="dt">static</span> constraints = {
+    <span class="fu">email</span>(email:<span class="kw">true</span>, blank:<span class="kw">false</span>, unique:<span class="kw">true</span>)
+    <span class="fu">password</span>(size:<span class="dv">5</span>..<span class="dv">15</span>, blank:<span class="kw">false</span>)
+    <span class="fu">age</span>(range:<span class="dv">18</span>..<span class="dv">99</span>)
+    <span class="fu">twitter</span>(url:<span class="kw">true</span>, nullable:<span class="kw">true</span>)
+  }
+}</code></pre>
+</section><section id="controladores" class="slide level2">
+<h2><span class="header-section-number">6.2</span> Controladores</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def user = <span class="kw">new</span> <span class="fu">User</span>(params)
+<span class="kw">if</span>(user.<span class="fu">validate</span>()) {
+  <span class="co">// do something with user</span>
+}
+<span class="kw">else</span> {
+  user.<span class="fu">errors</span>.<span class="fu">allErrors</span>.<span class="fu">each</span> {
+    println it
+  }
+}</code></pre>
+</section><section id="vistas" class="slide level2">
+<h2><span class="header-section-number">6.3</span> Vistas</h2>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;g:hasErrors</span><span class="ot"> bean=</span><span class="st">&quot;${user}&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;ul&gt;</span>
+    <span class="kw">&lt;g:eachError</span><span class="ot"> var=</span><span class="st">&quot;err&quot;</span><span class="ot"> bean=</span><span class="st">&quot;${user}&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;li&gt;</span>${err}<span class="kw">&lt;/li&gt;</span>
+    <span class="kw">&lt;/g:eachError&gt;</span>
+  <span class="kw">&lt;/ul&gt;</span>
+<span class="kw">&lt;/g:hasErrors&gt;</span></code></pre>
+</section>
+<section id="crud" class="titleslide slide level1"><h1><span class="header-section-number">7</span> CRUD</h1></section><section id="create" class="slide level2">
+<h2><span class="header-section-number">7.1</span> Create</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def p = <span class="kw">new</span> <span class="fu">Persona</span>(nombre: <span class="st">&quot;Fred&quot;</span>, edad: <span class="dv">40</span>)
+p.<span class="fu">save</span>()</code></pre>
+</section><section id="read" class="slide level2">
+<h2><span class="header-section-number">7.2</span> Read</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def p = Persona.<span class="fu">get</span>(unaPersona.<span class="fu">id</span>)
+assert <span class="dv">1</span> == p.<span class="fu">id</span></code></pre>
+</section><section id="update" class="slide level2">
+<h2><span class="header-section-number">7.3</span> Update</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def p = Persona.<span class="fu">get</span>(unaPersona.<span class="fu">id</span>)
+p.<span class="fu">nombre</span> = <span class="st">&quot;Bob&quot;</span>
+p.<span class="fu">save</span>()</code></pre>
+</section><section id="delete" class="slide level2">
+<h2><span class="header-section-number">7.4</span> Delete</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def p = Persona.<span class="fu">get</span>(unaPersona.<span class="fu">id</span>)
+p.<span class="fu">delete</span>()</code></pre>
+</section>
+<section id="gorm-1" class="titleslide slide level1"><h1><span class="header-section-number">8</span> GORM</h1></section><section id="agregación-unidireccional" class="slide level2">
+<h2><span class="header-section-number">8.1</span> Agregación (unidireccional)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Cara {
+  Nariz nariz
+}
+
+<span class="kw">class</span> Nariz {
+  ...
+}</code></pre>
+</section><section id="agregacion-bidireccional" class="slide level2">
+<h2><span class="header-section-number">8.2</span> Agregacion (bidireccional)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Cara {
+  Nariz nariz
+}
+
+<span class="kw">class</span> Nariz {
+  <span class="dt">static</span> belongsTo = [face:Face]
+}</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">new</span> <span class="fu">Cara</span>(nose:<span class="kw">new</span> <span class="fu">Nariz</span>()).<span class="fu">save</span>() <span class="co">// guarda ambos: Cara y Nariz</span>
+<span class="kw">new</span> <span class="fu">Nariz</span>(face:<span class="kw">new</span> <span class="fu">Cara</span>()).<span class="fu">save</span>() <span class="co">// da error</span>
+Face.<span class="fu">get</span>(faceId).<span class="fu">delete</span>() <span class="co">// borra ambos: Cara y Nariz</span></code></pre>
+</section><section id="uno-a-uno-foreign-key" class="slide level2">
+<h2><span class="header-section-number">8.3</span> Uno a uno (Foreign Key)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Cara {
+  <span class="dt">static</span> hasOne = [nose:Nose]
+
+  <span class="co">// opcional, pero buena práctica</span>
+  <span class="dt">static</span> constraints = {
+    nariz unique: <span class="kw">true</span>
+  }
+}
+<span class="kw">class</span> Nariz {
+  Cara cara <span class="co">// crea una FK en la tabla de Nariz</span>
+}</code></pre>
+</section><section id="uno-a-muchos-i" class="slide level2">
+<h2><span class="header-section-number">8.4</span> Uno a muchos (I)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Autor {
+  <span class="dt">static</span> hasMany = [ libros : Libro ]
+  String nombre
+}
+<span class="kw">class</span> Libro {
+  String titulo
+}</code></pre>
+<ul>
+<li>Cascada al salvar y al actualizar pero no al borrar.</li>
+</ul>
+</section><section id="uno-a-muchos-ii" class="slide level2">
+<h2><span class="header-section-number">8.5</span> Uno a muchos (II)</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Autor {
+  <span class="dt">static</span> hasMany = [ libros : Libro ]
+  String nombre
+}
+<span class="kw">class</span> Libro {
+  <span class="dt">static</span> belongsTo = [ author: Autor ]
+  String titulo
+}</code></pre>
+<ul>
+<li>Con belongsTo cascada al salvar, al actualizar y al borrar.</li>
+</ul>
+</section><section id="muchos-a-muchos" class="slide level2">
+<h2><span class="header-section-number">8.6</span> Muchos a muchos</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Autor {
+  <span class="dt">static</span> hasMany = [libros:Libro]
+  String nombre
+}
+
+<span class="kw">class</span> Libro {
+  <span class="dt">static</span> belongsTo = Autor
+  <span class="dt">static</span> hasMany = [authors:Autor]
+  String titulo
+}</code></pre>
+<ul>
+<li>El belongsTo marca el &quot;propietario&quot; de la relación, en este caso el Autor.</li>
+<li>Al salvar un Autor, se salvarán sus Libros, pero no al revés.</li>
+<li>Recomiendan usar 2 relaciones uno a muchos, mejor que una relación muchos a muchos.</li>
+</ul>
+</section>
+<section id="quering" class="titleslide slide level1"><h1><span class="header-section-number">9</span> Quering</h1></section><section id="listados" class="slide level2">
+<h2><span class="header-section-number">9.1</span> Listados</h2>
+<ul>
+<li>Todos los elementos:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def libros = Libro.<span class="fu">list</span>()</code></pre>
+<ul>
+<li>Paginación:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def libros = Libro.<span class="fu">list</span>(offset:<span class="dv">10</span>, max:<span class="dv">20</span>)</code></pre>
+<ul>
+<li>Ordenación</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">def libros = Libro.<span class="fu">list</span>(sort:<span class="st">&quot;title&quot;</span>, order:<span class="st">&quot;asc&quot;</span>)</code></pre>
+</section><section id="por-id" class="slide level2">
+<h2><span class="header-section-number">9.2</span> Por ID</h2>
+<pre class="sourceCode java"><code class="sourceCode java">def libro = Libro.<span class="fu">get</span>(<span class="dv">23</span>)</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java">def libros = Libro.<span class="fu">getAll</span>(<span class="dv">23</span>, <span class="dv">93</span>, <span class="dv">81</span>)</code></pre>
+</section><section id="findby-y-findallby" class="slide level2">
+<h2><span class="header-section-number">9.3</span> findBy y findAllBy</h2>
+<pre class="sourceCode java"><code class="sourceCode java">.<span class="fu">find</span>[All]<span class="fu">By</span>([Property][Comparator][And|Or])?[Property][Comparator]</code></pre>
+</section><section id="comparadores-i" class="slide level2">
+<h2><span class="header-section-number">9.4</span> Comparadores (I)</h2>
+<ul>
+<li><strong>InList</strong> - Busca el valor dentro de la lista pasada por parámetro.</li>
+<li><strong>LessThan</strong> - Menor que el valor pasado por parámetro.</li>
+<li><strong>LessThanEquals</strong> - Menor o igual que el valor pasado por parámetro.</li>
+<li><strong>GreaterThan</strong> - Mayor que el valor pasado por parámetro.</li>
+<li><strong>GreaterThanEquals</strong> - Mayor o igual que el valor pasado por parámetro.</li>
+</ul>
+</section><section id="comparadores-ii" class="slide level2">
+<h2><span class="header-section-number">9.5</span> Comparadores (II)</h2>
+<ul>
+<li><strong>Like</strong> - Equivalente al like de SQL.</li>
+<li><strong>Ilike</strong> - Similar a Like sólo que no es sensible a las mayúsculas.</li>
+<li><strong>NotEqual</strong> - No es igual al valor pasado por parámetro.</li>
+<li><strong>Between</strong> - Entre dos valores (necesita dos parámetros).</li>
+<li><strong>IsNotNull</strong> - Valor no nulo (no requiere ningún parámetro).</li>
+<li><strong>IsNull</strong> - Valor nulo (no requiere ningún parámetro)</li>
+</ul>
+</section><section id="ejemplos" class="slide level2">
+<h2><span class="header-section-number">9.6</span> Ejemplos</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> Libro {
+    String titulo
+    Date fecha
+}</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java">def libro = Libro.<span class="fu">findByTitulo</span>(<span class="st">&quot;The Stand&quot;</span>)
+def libros = Libro.<span class="fu">findAllByTituloLike</span>(<span class="st">&quot;Harry Pot%&quot;</span>)
+libros = Libro.<span class="fu">findAllByFechaBetween</span>(primeraFecha, segundaFecha)
+libros = Libro.<span class="fu">findAllByFechaGreaterThan</span>(someDate)
+libros = Libro.<span class="fu">findAllByTituloOrFechaLessThan</span>(<span class="st">&quot;%titulo buscado%&quot;</span>, fechaBuscada)</code></pre>
+</section>
+<section id="servicios" class="titleslide slide level1"><h1><span class="header-section-number">10</span> Servicios</h1></section><section id="definición-1" class="slide level2">
+<h2><span class="header-section-number">10.1</span> Definición</h2>
+<ul>
+<li>Se utilizan cuando necesitamos <strong>transacciones</strong> o cuando utilizamos varias <strong>clases de dominio</strong></li>
+</ul>
+</section><section id="creación" class="slide level2">
+<h2><span class="header-section-number">10.2</span> Creación</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> create-service org.example.Libro</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package</span> org.example
+
+<span class="kw">class</span> LibroService {
+    
+  def <span class="fu">doSomething</span>() {
+
+    <span class="co">// do domething</span>
+  }
+}</code></pre>
+</section><section id="transaccionalidad" class="slide level2">
+<h2><span class="header-section-number">10.3</span> Transaccionalidad</h2>
+<ul>
+<li><strong>Por defecto son transaccionales</strong>, para deshabilitarlo:</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="dt">static</span> transactional = <span class="kw">false</span></code></pre>
+</section><section id="scope" class="slide level2">
+<h2><span class="header-section-number">10.4</span> Scope</h2>
+<ul>
+<li><strong>Por defecto son singleton</strong>, pero podemos usar otros scopes:
+<ul>
+<li><strong>prototype</strong> - Una instancia por cada inyección.</li>
+<li><strong>request</strong> - Una instancia por cada request.</li>
+<li><strong>flash</strong> - Una instancia para la request actual y la siguiente.</li>
+<li><strong>flow</strong> - Una instancia por cada webflow.</li>
+<li><strong>conversation</strong> - Una instancia por cada conversacion de un webflow.</li>
+<li><strong>session</strong> - Una instancia por cada sesión.</li>
+<li><strong>singleton</strong> - Una única instancia (por defecto).</li>
+</ul></li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="dt">static</span> scope = <span class="st">&quot;flow&quot;</span></code></pre>
+</section><section id="inyección" class="slide level2">
+<h2><span class="header-section-number">10.5</span> Inyección</h2>
+<ul>
+<li>Los servicios se pueden inyectar en los controladores.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> LibroController {
+
+  def libroService
+  ...
+}</code></pre>
+</section>
+<section id="configuración-log4j" class="titleslide slide level1"><h1><span class="header-section-number">11</span> Configuración Log4j</h1></section><section id="logging-levels" class="slide level2">
+<h2><span class="header-section-number">11.1</span> Logging levels</h2>
+<ol type="1">
+<li>off</li>
+<li>fatal</li>
+<li>error</li>
+<li>warn</li>
+<li>info</li>
+<li>debug</li>
+<li>trace</li>
+<li>all</li>
+</ol>
+</section><section id="artefactos" class="slide level2">
+<h2><span class="header-section-number">11.2</span> Artefactos</h2>
+<ul>
+<li>conf/Config.groovy</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">log4j = {
+
+    <span class="co">// warn a todos los artefactos de nuestra aplicacion</span>
+    warn <span class="st">&quot;grails.app&quot;</span>
+    
+    <span class="co">// debug a un controlador específico alojado en el paquete por defecto</span>
+    debug <span class="st">&quot;grails.app.controllers.YourController&quot;</span>
+
+    <span class="co">// debug a una clase de dominio específica</span>
+    debug <span class="st">&quot;grails.app.domain.org.example.Book&quot;</span>
+
+    <span class="co">// error a todos los taglibs</span>
+    error <span class="st">&quot;grails.app.taglib&quot;</span>
+    
+    <span class="co">// info a tos los servicios</span>
+    info <span class="st">&quot;grails.app.services&quot;</span>
+}</code></pre>
+</section>
+<section id="configuración-spring" class="titleslide slide level1"><h1><span class="header-section-number">12</span> Configuración Spring</h1></section><section id="iyección-normal" class="slide level2">
+<h2><span class="header-section-number">12.1</span> Iyección normal</h2>
+<ul>
+<li>conf/spring/resources.groovy</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">beans = {
+    <span class="fu">rules</span>(org.<span class="fu">example</span>.<span class="fu">Rules</span>) {
+        deltaAge = <span class="dv">5</span>
+        deltaHeight = <span class="fl">0.1</span>
+    }
+}</code></pre>
+</section><section id="iyección-tests" class="slide level2">
+<h2><span class="header-section-number">12.2</span> Iyección tests</h2>
+<ul>
+<li>conf/spring/resources.groovy</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">defineBeans {
+    <span class="fu">rules</span>(org.<span class="fu">example</span>.<span class="fu">Rules</span>) {
+        deltaAge = <span class="dv">5</span>
+        deltaHeight = <span class="fl">0.1</span>
+    }
+}</code></pre>
+</section>
+<section id="testing" class="titleslide slide level1"><h1><span class="header-section-number">13</span> Testing</h1></section><section id="unit-test" class="slide level2">
+<h2><span class="header-section-number">13.1</span> Unit Test</h2>
+<ul>
+<li><p>Tienen que ser rápidos, no se ejecutan en el servidor, utilizan mocks.</p></li>
+<li><p>Utilizan las anotaciones <span class="citation" data-cites="TestFor">@TestFor</span> y <span class="citation" data-cites="Mock">@Mock</span></p></li>
+</ul>
+</section><section id="integration-test" class="slide level2">
+<h2><span class="header-section-number">13.2</span> Integration Test</h2>
+<ul>
+<li><p>Se ejecutan en el servidor con datos reales.</p></li>
+<li><p>Podemos utilizar el BootStrap para meter datos en la base de datos.</p></li>
+</ul>
+</section>
+<section id="spring-security" class="titleslide slide level1"><h1><span class="header-section-number">14</span> Spring Security</h1></section><section id="instalación" class="slide level2">
+<h2><span class="header-section-number">14.1</span> Instalación</h2>
+<ul>
+<li>conf/BuildConfig.groovy</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">...
+plugins {
+  ...
+  compile &#39;:spring-security-core:<span class="fl">1.2.7.3</span>&#39;
+  ...
+}</code></pre>
+</section><section id="configuración" class="slide level2">
+<h2><span class="header-section-number">14.2</span> Configuración</h2>
+<pre><code>grails refresh-dependencies</code></pre>
+<pre><code>grails s2-quickstart org.example User Role</code></pre>
+</section><section id="uso" class="slide level2">
+<h2><span class="header-section-number">14.3</span> Uso</h2>
+<ul>
+<li><p>Se usa la anotación <span class="citation" data-cites="Secured">@Secured</span>(['ROLE_NAME']) tanto a nivel de clase como a nivel de método.</p></li>
+<li><p>Se pueden usar tambien las siguientes reglas:</p>
+<ul>
+<li><strong>IS_AUTHENTICATED_ANONYMOUSLY</strong>: cualquiera puede entrar, incluso sin hacer login</li>
+<li><strong>IS_AUTHENTICATED_REMEMBERED</strong>: sólo usuarios con login pueden entrar</li>
+<li><strong>IS_AUTHENTICATED_FULLY</strong>: obliga a hacer login aunque tengas la cookie de remember</li>
+</ul></li>
+</ul>
+</section>
+
+<!--footer id="footer">
+  <h4 class="author"> Adolfo Sanz De Diego  - Abril 2013</h4>
+</footer-->
+
+<!-- deck goto extension html -->
+<form action="." method="get" class="goto-form">
+  <label for="goto-slide">Go to slide:</label>
+  <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  <datalist id="goto-datalist"></datalist>
+  <input type="submit" value="Go">
+</form>
+
+<!-- deck navigation extension html -->
+<div aria-role="navigation">
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+</div>
+
+<!-- deck status extension html -->
+<p class="deck-status" aria-role="status">
+  <span class="deck-status-current"></span>
+  /
+  <span class="deck-status-total"></span>
+</p>
+
+<!-- jquery  -->
+<script src="../lib/deck.js-master/jquery.min.js"></script>
+
+<!-- deck core js  -->
+<script src="../lib/deck.js-master/core/deck.core.js"></script>
+
+<!-- deck extension js -->
+<script src="../lib/deck.js-master/extensions/goto/deck.goto.js"></script>
+<script src="../lib/deck.js-master/extensions/menu/deck.menu.js"></script>
+<script src="../lib/deck.js-master/extensions/navigation/deck.navigation.js"></script>
+<script src="../lib/deck.js-master/extensions/scale/deck.scale.js"></script>
+<script src="../lib/deck.js-master/extensions/status/deck.status.js"></script>
+<!--script src="../lib/deck.search.js-master/search/deck.search.js"></script-->
+
+<!-- Initialize the deck. -->
+<script>
+$(function() {
+    $.deck('.slide');
+});
+</script>
+
+</body>
+</html>

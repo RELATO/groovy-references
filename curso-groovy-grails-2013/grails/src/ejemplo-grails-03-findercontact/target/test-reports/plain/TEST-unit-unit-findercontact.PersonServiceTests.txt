@@ -1,0 +1,50 @@
+Testsuite: findercontact.PersonServiceTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1,207 sec
+------------- Standard Output ---------------
+--Output from testFindContacts--
+2013-05-14 11:32:29,857 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 1---------------------------
+
+2013-05-14 11:32:29,857 [Thread-42] INFO  findercontact.PersonService  - 4
+
+2013-05-14 11:32:29,858 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M]
+
+2013-05-14 11:32:29,858 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M]
+
+2013-05-14 11:32:29,859 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:29,859 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+2013-05-14 11:32:29,859 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 2---------------------------
+
+2013-05-14 11:32:29,859 [Thread-42] INFO  findercontact.PersonService  - class fidercontactrules.Rules
+
+2013-05-14 11:32:29,859 [Thread-42] INFO  findercontact.PersonService  - deltaAge=5
+
+2013-05-14 11:32:29,860 [Thread-42] INFO  findercontact.PersonService  - deltaHeight=0.1
+
+2013-05-14 11:32:29,860 [Thread-42] INFO  findercontact.PersonService  - p=Person [name=Teresa, age=35, height=1.6, sex=W]
+
+2013-05-14 11:32:29,860 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 3---------------------------
+
+2013-05-14 11:32:29,861 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M] -> false
+
+2013-05-14 11:32:29,861 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M] -> false
+
+2013-05-14 11:32:29,862 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M] -> true
+
+2013-05-14 11:32:29,862 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M] -> true
+
+2013-05-14 11:32:29,862 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 4---------------------------
+
+2013-05-14 11:32:29,864 [Thread-42] INFO  findercontact.PersonService  - 2
+
+2013-05-14 11:32:29,864 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:29,865 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testFindContacts--
+------------- ---------------- ---------------
+
+Testcase: testFindContacts took 0,759 sec

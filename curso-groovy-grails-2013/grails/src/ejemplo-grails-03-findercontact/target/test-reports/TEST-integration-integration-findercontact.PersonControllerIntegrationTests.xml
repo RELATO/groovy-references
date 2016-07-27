@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="asus-u32u" name="findercontact.PersonControllerIntegrationTests" tests="1" time="0.296" timestamp="2013-05-14T09:32:48">
+  <properties />
+  <testcase classname="findercontact.PersonControllerIntegrationTests" name="testFind" time="0.294" />
+  <system-out><![CDATA[--Output from testFind--
+Hibernate: select this_.person_id as person1_57_0_, this_.version as version57_0_, this_.age as age57_0_, this_.height as height57_0_, this_.name as name57_0_, this_.sex as sex57_0_ from Persons this_
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: insert into Persons (person_id, version, age, height, name, sex) values (null, ?, ?, ?, ?, ?)
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: delete from Persons where person_id=? and version=?
+Hibernate: select this_.person_id as person1_57_0_, this_.version as version57_0_, this_.age as age57_0_, this_.height as height57_0_, this_.name as name57_0_, this_.sex as sex57_0_ from Persons this_ where this_.sex=?
+2013-05-14 11:32:48,871 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 1---------------------------
+
+2013-05-14 11:32:48,871 [Thread-42] INFO  findercontact.PersonService  - 4
+
+2013-05-14 11:32:48,872 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M]
+
+2013-05-14 11:32:48,872 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M]
+
+2013-05-14 11:32:48,873 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:48,873 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+2013-05-14 11:32:48,873 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 2---------------------------
+
+2013-05-14 11:32:48,873 [Thread-42] INFO  findercontact.PersonService  - class fidercontactrules.Rules
+
+2013-05-14 11:32:48,873 [Thread-42] INFO  findercontact.PersonService  - deltaAge=5
+
+2013-05-14 11:32:48,874 [Thread-42] INFO  findercontact.PersonService  - deltaHeight=0.1
+
+2013-05-14 11:32:48,874 [Thread-42] INFO  findercontact.PersonService  - p=Person [name=Teresa, age=35, height=1.6, sex=W]
+
+2013-05-14 11:32:48,874 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 3---------------------------
+
+2013-05-14 11:32:48,874 [Thread-42] INFO  findercontact.PersonService  - Person [name=Adolfo, age=35, height=1.7, sex=M] -> false
+
+2013-05-14 11:32:48,875 [Thread-42] INFO  findercontact.PersonService  - Person [name=Andres, age=25, height=1.6, sex=M] -> false
+
+2013-05-14 11:32:48,876 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M] -> true
+
+2013-05-14 11:32:48,876 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M] -> true
+
+2013-05-14 11:32:48,876 [Thread-42] INFO  findercontact.PersonService  - -----------------SERVICE 4---------------------------
+
+2013-05-14 11:32:48,877 [Thread-42] INFO  findercontact.PersonService  - 2
+
+2013-05-14 11:32:48,878 [Thread-42] INFO  findercontact.PersonService  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:48,878 [Thread-42] INFO  findercontact.PersonService  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+2013-05-14 11:32:48,879 [Thread-42] INFO  findercontact.PersonController  - -----------------CONTROLLER-----------------------------------
+
+2013-05-14 11:32:48,879 [Thread-42] INFO  findercontact.PersonController  - 2
+
+2013-05-14 11:32:48,879 [Thread-42] INFO  findercontact.PersonController  - Person [name=Javier, age=30, height=1.51, sex=M]
+
+2013-05-14 11:32:48,880 [Thread-42] INFO  findercontact.PersonController  - Person [name=Julio, age=40, height=1.69, sex=M]
+
+]]></system-out>
+  <system-err><![CDATA[--Output from testFind--
+]]></system-err>
+</testsuite>

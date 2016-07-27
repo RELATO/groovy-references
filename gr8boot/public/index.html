@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>FOAS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="foas.js"></script>
+  </head>
+  <body>
+    <div ng-controller="Foas">
+        <form name="foas">
+            <input ng-model="who" value="Aaron">
+            <p>{{command}} {{subject}}.</p>
+            <p>Sincerely,<br/>{{author}}</p>
+            <pre>Created: {{created}}</pre>
+        </form>
+    </div>
+  </body>
+</html>
